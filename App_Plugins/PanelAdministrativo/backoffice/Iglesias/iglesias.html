@@ -1,0 +1,85 @@
+﻿<div ng-controller="IglesiasController as vmIglesia">
+    <umb-editor-view>
+      
+        <umb-editor-container>
+            <umb-editor-sub-header class="flex">
+                <umb-editor-sub-header-section style="gap: 10px; width:100%">
+                   
+                    <umb-box style="width:33%;">
+                        <umb-box-header>
+                            <h3>Categorías de Iglesia</h3>
+                        </umb-box-header>
+                        <umb-box-content>
+                            <p>Small: {{vmIglesia.content.totalSmall}}. Medium: {{vmIglesia.content.totalMedium}}. Large: {{vmIglesia.content.totalLarge}}.</p>
+                        </umb-box-content>
+                    </umb-box>
+
+                  
+                    <umb-box style="width:33%;">
+                        <umb-box-header>
+                            <h3>Región</h3>
+                        </umb-box-header>
+                        <umb-box-content>
+                            <p>North: {{vmIglesia.content.totalNorth}}. South: {{vmIglesia.content.totalSouth}}. Central: {{vmIglesia.content.totalCentral}}</p>
+                        </umb-box-content>
+                    </umb-box>
+
+                
+                    <umb-box style="width:33%;">
+                        <umb-box-header>
+                            <h3>Estatus de Iglesia</h3>
+                        </umb-box-header>
+                        <umb-box-content>
+                            <p>Activa: {{vmIglesia.content.totalActive}}. Inactiva: {{vmIglesia.content.totalInactive}}.</p>
+                        </umb-box-content>
+                    </umb-box>
+                </umb-editor-sub-header-section>
+            </umb-editor-sub-header>
+
+      
+            <umb-editor-sub-header-content-right>
+                <umb-search-filter model="vmIglesia.searchQuery"
+                                   on-change="vmIglesia.filterChurches()"
+                                   placeholder="Search churches...">
+                </umb-search-filter>
+
+                <button type="button" class="btn btn-primary" ng-click="vmIglesia.AddProfileclickItem()">
+                    Add Church
+                </button>
+            </umb-editor-sub-header-content-right>
+
+      
+            <uui-table aria-label="Churches table">
+                <uui-table-head>
+                    <uui-table-head-cell>Name</uui-table-head-cell>
+                    <uui-table-head-cell>PhoneNumber</uui-table-head-cell>
+                    <uui-table-head-cell>EmailAddress</uui-table-head-cell>
+                    <uui-table-head-cell>Address</uui-table-head-cell>
+                    <uui-table-head-cell>Members</uui-table-head-cell>
+                    <uui-table-head-cell>CreatedDate</uui-table-head-cell>
+                    <uui-table-head-cell>Actions</uui-table-head-cell>
+                </uui-table-head>
+
+                <uui-table-row ng-repeat="church in vmIglesia.filteredChurches">
+                    <uui-table-cell>
+                        <a href="#" ng-click="vmIglesia.clickItem(church); $event.preventDefault();" aria-label="Navigate to {{church.name}} profile">{{church.name}}</a>
+                    </uui-table-cell>
+
+                    <uui-table-cell>{{church.phoneNumber}}</uui-table-cell>
+                    <uui-table-cell>{{church.emailAddress}}</uui-table-cell>
+                    <uui-table-cell>{{church.address}}</uui-table-cell>
+                    <uui-table-cell>{{church.coordinatorName}}</uui-table-cell>
+                    <uui-table-cell>{{church.createdDate}}</uui-table-cell>
+                    <uui-table-cell>
+                        <button type="button" class="btn btn-primary btn-sm" ng-click="vmIglesia.editProfileclickItem(church)">Edit</button>
+                        <button type="button" class="btn btn-danger btn-sm" ng-click="vmIglesia.deleteChurch(church)">Delete</button>
+                    </uui-table-cell>
+                </uui-table-row>
+
+                <uui-table-row ng-if="!vmIglesia.filteredChurches.length">
+                    <uui-table-cell colspan="6">No churches found matching your search criteria.</uui-table-cell>
+                </uui-table-row>
+            </uui-table>
+        </umb-editor-container>
+    </umb-editor-view>
+</div>

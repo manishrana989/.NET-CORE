@@ -1,0 +1,40 @@
+﻿<div ng-controller="licenseController">
+    <div class="umb-dashboard">
+        <div class="umb-dashboard__content">
+            <div class="post-card ">
+                <div class="post-card__image-wrapper">
+                    <div class="post-card__image">
+                        <img src="/App_Plugins/DatabaseExtensionKit/images/dbextkit-logo.png" alt="DatabaseExtensionKit" />
+                    </div>
+                </div>
+            </div>
+            <div class="umb-box">
+                <div class="umb-box-content">
+                    <h3 class="bold">  <localize key="general_licenseInfo">License Info</localize></h3>
+                    <div ng-if="licenseInfo.isValid">
+                        <p>License Id: <span>{{licenseInfo.id}}</span></p>
+                        <p>Customer: <span>{{licenseInfo.customer}}</span></p>
+                        <p>Domain: <span>{{licenseInfo.domain}}</span></p>
+                        <p>Activation date: <span>{{licenseInfo.activationDate}}</span></p>
+                    </div>
+                    <div class="form-horizontal" ng-if="!licenseInfo.isValid">
+                        <ng-form name="licenseForm" val-form-manager>
+                            <p ng-if="licenseInfo.error != ''">{{licenseInfo.error}}</p>
+                            <umb-property property="fileProperty">
+                                <umb-property-editor model="fileProperty"></umb-property-editor>
+                            </umb-property>
+                            <div style="margin-top:20px">
+                                <umb-button action="upload()"
+                                            type="button"
+                                            button-style="success"
+                                            label-key="general_upload">
+                                </umb-button>
+                            </div>
+                        </ng-form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

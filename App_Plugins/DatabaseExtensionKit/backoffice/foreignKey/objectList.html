@@ -1,0 +1,7 @@
+﻿<div ng-controller="ObjectListController as vm">
+    <div>
+        <select ng-model="model.value">
+            <option ng-repeat="option in types" value="{{option.alias}}">{{option.name}}</option>
+        </select>
+    </div>
+</div>

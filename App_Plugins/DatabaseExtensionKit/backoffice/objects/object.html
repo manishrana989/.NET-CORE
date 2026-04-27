@@ -1,0 +1,16 @@
+﻿<div class="umb-group-panel ">
+    <div class="umb-group-panel__content">
+        <div class="form-horizontal">
+            <umb-property property="property" ng-repeat="property in model.properties">
+                <umb-property-editor model="property"></umb-property-editor>
+            </umb-property>
+        </div>
+    </div>
+</div>
+  
+<div ng-repeat="child in childObjects" style="padding-top:50px">
+    <h4><strong>{{child.reference.tableName}}</strong></h4>
+    <list-component model="child.docType" items="child.objects" children-list="1" reference ="child.reference">
+    </list-component>
+</div>
+

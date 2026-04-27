@@ -1,0 +1,685 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.PreguntasMasFrequentes>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    Layout = "Master.cshtml";
+}
+
+<!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs">
+    <div class="page-header d-flex align-items-center" style="background-image: url('');">
+        <div class="container position-relative">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h2 style="padding: 10px;">Preguntas Mas Frequentes</h2>
+                    <p>
+                        ¡Bienvenido a la sección de Preguntas Frecuentes (FAQ)! Aquí encontrarás respuestas a las consultas
+                        más comunes sobre el Ministerio AME y los servicios y ayudas que ofrecemos. Explora nuestras
+                        preguntas frecuentes para obtener la información que necesitas de manera rápida y sencilla. Si no
+                        encuentras lo que buscas, no dudes en contactarnos. ¡Estamos aquí para ayudarte!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav>
+        <div class="container">
+            <ol>
+                <li><a href="/">Inicio</a></li>
+                <li>Preguntas Mas Frequentes</li>
+            </ol>
+        </div>
+    </nav>
+</div>
+<!-- End Breadcrumbs -->
+<!-- ======= Frequently Asked Questions Section ======= -->
+<section id="faq" class="faq">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+            <h2>Relacionadas a la medida para Eventos de Emergencias.</h2>
+            <p> </p>
+        </div>
+
+        <div class="row gy-4">
+
+            <div class="col-lg-12">
+
+                <div class="accordion accordion-flush" id="faqlist" data-aos="fade-up" data-aos-delay="100">
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
+                                <span class="num">1.</span>
+                                ¿Es esta medida exclusiva para el período de alerta por la Pandemia causada por el COVID 19?
+
+                            </button>
+                        </h3>
+                        <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                NO, estas medidas aprobadas por la Junta Directiva establecen el método de operación del
+                                Ministerio AME durante cualquier emergencia, sea ésta causada por un accidente en grupo de
+                                cualquier tipo, desastres naturales o ambientales, actos de terrorismo, epidemias, endemias,
+                                pandemias y otros que provoquen muertes en masas, ya sea un evento local, estatal, nacional o mundial.
+
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
+                                <span class="num">2.</span>
+                                ¿Está activa la medida durante este evento del COVID 19?
+                            </button>
+                        </h3>
+                        <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                SI, por ser declarada una emergencia la medida queda automáticamente activa.
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
+                                <span class="num">3.</span>
+                                ¿Qué servicios ofrece el Ministerio de Ayuda Mutua para Enterramiento durante el período que la medida de emergencia se mantenga activa?
+                            </button>
+                        </h3>
+                        <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                Si el evento en cuestión lo permitiera, el Ministerio AME se mantendrá brindando
+                                apoyo espiritual, emocional y administrativo durante todo este período.
+
+                                En adición a ello se cubrirán los servicios funerales de los miembros que fallecieran.
+                                Si por razones relacionadas al evento al Ministerio AME se le imposibilita ofrecer estos
+                                servicios, los mismos se limitarán a los servicios posibles.
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-4">
+                                <span class="num">4.</span>
+                                ¿Está el servicio de cementerio incluido mientras esté activa la Medida de Emergencia?
+                            </button>
+                        </h3>
+                        <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                NO, todos los gastos de cementerio serán responsabilidad de los familiares a cargo.
+                                Si estos no contaran con los recursos económicos necesarios, el Ministerio le ayudará
+                                proveyendo la cremación como método de disposición final, si así lo desearan.
+
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-5">
+                                <span class="num">5.</span>
+                                ¿Hay algún límite para el costo de los servicios que se ofrecerán mientras la Medida de Emergencia esté activa?
+                            </button>
+                        </h3>
+                        <div id="faq-content-5" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                Si, el costo de los servicios combinados no deberá exceder los $4,200.00.
+                                Si excediera, el familiar o persona a cargo será responsable de pagar el excedente.
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-6">
+                                <span class="num">6.</span>
+                                ¿Deberá el Miembro Sostenedor continuar realizando sus aportaciones de forma rutinaria?
+                            </button>
+                        </h3>
+                        <div id="faq-content-6" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                SI, la única fuente de ingreso del Ministerio AME son las aportaciones que los
+                                miembros realizan con el fin de ayudar a sus hermanos en necesidad inmediata.
+                                Para poder mantener activa su membresía es importante realizar la aportación cada mes.
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-7">
+                                <span class="num">7.</span>
+                                ¿Cómo puede el Miembro Sostenedor realizar la aportación?
+                            </button>
+                        </h3>
+                        <div id="faq-content-7" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                Tenemos varias opciones disponibles que le permiten hacer
+                                la aportación desde la comodidad del hogar o desde su teléfono.
+                                Es necesario que los miembros se registren en alguna de ellas y
+                                provean un correo electrónico a la mayor brevedad posible.
+                                Para esto se puede comunicar a la oficina o visitar el sitio web.
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-8">
+                                <span class="num">8.</span>
+                                ¿Se altera de alguna manera la cantidad de la aportación de los Miembros en la Medida de Emergencia?
+                            </button>
+                        </h3>
+                        <div id="faq-content-8" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                SI, la medida establece que, mientras esta esté activa,
+                                si en un mismo mes ocurrieran más de quince (15) fallecimientos,
+                                a partir del fallecido número dieciséis (16) todos los miembros
+                                aportarán $2.00 por cada fallecido hasta el fallecido número veinticinco (25).
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-9">
+                                <span class="num">9.</span>
+                                ¿Qué ocurriría a partir del fallecimiento número 26?
+                            </button>
+                        </h3>
+                        <div id="faq-content-9" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                La Medida establece que, en caso de que ocurrieran más de
+                                veinticinco (25) fallecimientos en un mismo mes, el Ministerio
+                                no ofrecerá la ayuda del número veintiséis (26) en adelante.
+                                No obstante, el Comité Administrativo podría tomar la decisión
+                                de ofrecer la ayuda basándose en el presupuesto disponible.
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section><!-- End Frequently Asked Questions Section -->
+
+<section id="faq" class="faq">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+            <h2>Preguntas Generales</h2>
+            <p> </p>
+        </div>
+
+        <div class="row gy-4">
+
+            <div class="col-lg-12">
+
+                <div class="accordion accordion-flush" id="faqlist" data-aos="fade-up" data-aos-delay="100">
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1a">
+                                <span class="num">1.</span>
+                                ¿Qué es un Ministerio?
+
+                            </button>
+                        </h3>
+                        <div id="faq-content-1a" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                En el concepto etimológico la palabra Ministerio viene del latín “Ministerium”
+                                que significa (servir).  Podemos concluir que, un Ministerio es un Departamento
+                                u Organización la cual su función es ser un facilitador.  En el aspecto espiritual,
+                                un Ministerio sirve a Dios en la tarea de rescatar al ser humano.
+
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2a">
+                                <span class="num">2.</span>
+                                ¿Es el Ministerio AME un seguro de Enterramiento?
+                            </button>
+                        </h3>
+                        <div id="faq-content-2a" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                El Ministerio de Ayuda Mutua para Enterramiento NO es un seguro de salud ni
+                                de ningún otro tipo.  El Ministerio consiste en un grupo de hermanos,
+                                ayudándose mutuamente, con el propósito de transformar el momento de su muerte
+                                en una oportunidad para que sus familiares y amigos puedan conocer al Dios
+                                que ellos han servido y disfruten de la bendita esperanza de la resurrección.
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3a">
+                                <span class="num">3.</span>
+                                ¿Como puedo formar parte del Ministerio AME?
+                            </button>
+                        </h3>
+                        <div id="faq-content-3a" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                Para una persona formar parte del Ministerio AME su iglesia debe estar afiliada a este.
+                                El Ministerio realiza periodos de matricula 3 veces al año donde los miembros de las
+                                iglesias afiliadas pueden llenar una Solicitud de Admisión a través de la página web del
+                                Ministerio o solicitándola al Coordinador de Duelo y Asuntos Funerales de la iglesia.
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-4a">
+                                <span class="num">4.</span>
+                                ¿Como puede mi Iglesia ser parte de Este Ministerio?
+                            </button>
+                        </h3>
+                        <div id="faq-content-4a" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                Comuníquese con su pastor e informele de su interés en que la iglesia
+                                participe del Ministerio AME.  El pastor o algún líder asignado por este,
+                                se contacta con la administración del Ministerio AME y se coordina una
+                                presentación de orientación a la iglesia.  Una vez orientada, los miembros
+                                interesados podrán seguir el procedimiento para ser aceptados como Miembros del Ministerio AME.
+
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-5a">
+                                <span class="num">5.</span>
+                                ¿Qué es un Coordinador de Duelo y Asuntos Funerales?
+                            </button>
+                        </h3>
+                        <div id="faq-content-5a" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                Es un miembro de iglesia, seleccionado por ésta, para servir de enlace entre la iglesia
+                                y el Ministerio AME. Entre sus funciones está el orientar a los miembros, ayudar
+                                en la coordinación de los servicios funerales y promocionar los periodos de matrícula en la iglesia.
+
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-6a">
+                                <span class="num">6.</span>
+                                ¿Puede una persona formar parte de este ministerio sin ser miembro de la iglesia?
+                            </button>
+                        </h3>
+                        <div id="faq-content-6a" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                Aquellas personas de la comunidad que, de alguna manera se relacionan con la iglesia,
+                                podrían solicitar ser aceptados como miembros del Ministerio AME.
+
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-7a">
+                                <span class="num">7.</span>
+                                ¿Bajo qué categoría serían aceptadas las personas de la comunidad, que no son miembros de iglesia, pero se relacionan con ésta de alguna manera?
+                            </button>
+                        </h3>
+                        <div id="faq-content-7a" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                De ser aceptados por el Ministerio AME, estas personas entrarían en la categoría de Miembros Honorarios.
+
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-8a">
+                                <span class="num">8.</span>
+                                ¿Qué es un miembro Honorarios del Ministerio AME?
+                            </button>
+                        </h3>
+                        <div id="faq-content-8a" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                Es uno de los diferentes tipos de Miembros que existen en el Ministerio AME y en ella se ubican aquellos miembros con las siguientes características.<br /><br />
+
+                                - Sostenedores que se mudan a una iglesia no afiliada al Ministerio AME.<br /><br />
+                                - Miembros Dependientes que, al fallecer su Miembro Sostenedor, deciden permanecer en el Ministerio AME pero que cumplen con los requisitos para ser un Miembro Sostenedor.<br /><br />
+                                - Miembros Sostenedores que, por alguna razón, dejan de ser miembros de la iglesia.<br /><br />
+                                - Personas que no son miembros de la iglesia y desean formar parte del Ministerio AME y cumplen con las condiciones establecidas.<br /><br />
+                                Los Miembros Honorarios tienen todos los poderes y derechos que los Miembros Sostenedores, con excepción del derecho a votar en la reunión cuatrianual para seleccionar la Junta Directiva.
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-9a">
+                                <span class="num">9.</span>
+                                ¿Hay un límite de edad para formar parte del ministerio?
+                            </button>
+                        </h3>
+                        <div id="faq-content-9a" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                Existe un límite de edad de 75 años para solicitar ser aceptado como Miembro
+                                Sostenedor en la clasificación A y de 70 años en la clasificación B.  Pero no existe
+                                un limite de edad para ser incluido como un Miembro Dependiente.  Aquellas personas
+                                que luego de ser miembros del Ministerio AME son dados de baja, sea esta voluntaria
+                                o involuntaria, no podrán formar parte nuevamente una vez cumplan los 71 años.
+
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-10a">
+                                <span class="num">10.</span>
+                                ¿Como me beneficia el ser de la clasificación A?
+                            </button>
+                        </h3>
+                        <div id="faq-content-10a" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                Una vez aceptados, las personas en esta clasificación no tienen periodo de espera para ser elegibles a recibir la ayuda de los servicios funerarios y solo un periodo de seis meses de espera para ser elegibles para la ayuda del cementerio.  Además, la clasificación permite a los interesados, el solicitar ser aceptados como Miembros Sostenedores hasta los 75 años.
+
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-11a">
+                                <span class="num">11.</span>
+                                ¿Qué tengo que hacer para calificar para la clasificación A?
+                            </button>
+                        </h3>
+                        <div id="faq-content-11a" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                Cuando el Ministerio AME es presentado en una iglesia por primera vez,
+                                todos los miembros de esa iglesia tendrán un periodo de 30 días para
+                                llenar una solicitud de admisión.  Todos los que decidan llenarla,
+                                y sean aceptados, entraran en clasificación A.  Una vez concluidos
+                                los 30 días, los interesados deberán esperar hasta un nuevo periodo
+                                de matrícula y serán aceptados en la clasificación B.
+
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-12a">
+                                <span class="num">12.</span>
+                                ¿Existe un periodo de Espera?
+                            </button>
+                        </h3>
+                        <div id="faq-content-12a" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                Una vez aprobada la persona, los periodos de espera son los siguientes:<br /><br />
+
+                                - Clasificación A: No periodo de espera para la ayuda en la funeraria. Seis meses de espera para la ayuda del cementerio.<br /><br />
+                                - Clasificación B: Seis meses de espera para la ayuda en la funeraria. Un año de espera para la ayuda en el cementerio.<br /><br />
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-13a">
+                                <span class="num">13.</span>
+                                ¿Cuál es la aportación mensual?
+                            </button>
+                        </h3>
+                        <div id="faq-content-13a" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                Esta aportación varía de acuerdo con el lugar donde resida el solicitante y con
+                                la fecha en que se unió al Ministerio AME.  En la actualidad (2020) la aportación
+                                para nuevos integrantes es de $24.00 para los que viven en Puerto Rico, y los residentes
+                                de los Estados Unidos tienen la opción de seleccionar el aportar una cuota fija de $35.00
+                                mensuales, o pueden seleccionar aportar $7.00 por cada fallecimiento que ocurra en el mes.
+
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-14a">
+                                <span class="num">14.</span>
+                                ¿Qué pasa si me quedo sin trabajo y no puedo realizar mis aportes mensuales?
+                            </button>
+                        </h3>
+                        <div id="faq-content-14a" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                El Ministerio tiene un procedimiento para ayudar a aquellos Miembros
+                                Sostenedores que han pertenecido al Ministerio por largo tiempo siendo
+                                constantes en sus envíos y por alguna razón sus ingresos se ven afectados
+                                temporeramente.  El Miembro Sostenedor en cuestión deberá llenar un formulario
+                                solicitando dicha ayuda e informar lo sucedido.  Su pedido será evaluado y se
+                                le notificará por escrito la decisión tomada.
+
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-15a">
+                                <span class="num">15.</span>
+                                ¿Cuál es la ayuda ofrecida por el ministerio?
+                            </button>
+                        </h3>
+                        <div id="faq-content-15a" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                La ayuda ofrecida es la siguiente:<br /><br /><br />
+
+                                > SERVICIOS ADMINISTRATIVOS<br /><br />
+                                - Manejo de la membresía<br /><br />
+                                - Aplicación de las aportaciones y reportes<br /><br />
+                                - Atención y servicios a los miembros<br /><br />
+                                - Coordinación y pago de la ayuda ofrecida en la funeraria y el  cementerio<br /><br />
+                                - Desarrollo de estrategias de crecimiento y cumplimiento de la Misión<br /><br /><br /><br />
+
+                                > SERVICIOS FUNERALES<br /><br />
+                                - Ataúd 20-ga. (no sellado)<br /><br />
+                                - Traslado local de los restos al lugar de preparación<br /><br />
+                                - Embalsamamiento, arreglo y maquillaje<br /><br />
+                                - Servicio básico del director funerario y su personal<br /><br />
+                                - Uso de capilla funeraria para velatorio (tiempo básico)<br /><br />
+                                - Facilidades para la ceremonia<br /><br />
+                                - Paquete funeral básico (libro de firmas, tarjetas)<br /><br />
+                                - Vehículo fúnebre para traslado del féretro al cementerio<br /><br /><br /><br />
+
+                                > SERVICIOS DEL CEMENTERIO (puede ser sustituido por Cremación)<br /><br />
+                                - Lote de terreno para una (1) persona<br /><br />
+                                - Abrir y cerrar<br /><br />
+                                - Bóveda con instalación (de ser requerida)<br /><br />
+                                - Servicios profesionales de enterramiento<br /><br />
+
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-17a">
+                                <span class="num">17.</span>
+                                ¿En caso de un desastre, donde fallecieran un gran número de los Miembros del Ministerio AME, existe algún plan? ¿Podrá el Ministerio AME ofrecer la ayuda a todas las familias?
+                            </button>
+                        </h3>
+                        <div id="faq-content-17a" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                El Ministerio AME se compone de todos sus Miembros, y en tanto los Miembros
+                                estén en la capacidad de ayudar a sus hermanos, el Ministerio de igual manera
+                                lo estará.  La Junta Directiva desarrollo unas Medidas para Emergencias, las
+                                cuales se activan automáticamente una vez surja la necesidad. Para más detalles,
+                                estas medidas están disponibles en la página cibernética del Ministerio AME (ministeriosame.org
+                                o burialministries.org).
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-18a">
+                                <span class="num">18.</span>
+                                ¿Si ya tengo los servicios de Cementerio, tengo derecho a que se me reembolse el dinero que pagué?
+                            </button>
+                        </h3>
+                        <div id="faq-content-18a" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                El Ministerio AME suplirá solo lo necesario en cada caso.
+                                Ningún reembolso se le realizará a la familia por propiedad
+                                que esta adquiera antes, durante o después del fallecimiento
+                                de algún Miembro, a menos que el representante del Ministerio
+                                que está manejando la coordinación autorice la compra por escrito.
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-19a">
+                                <span class="num">19.</span>
+                                ¿Como puede ayudar el Ministerio a mi familia después de mi muerte?
+                            </button>
+                        </h3>
+                        <div id="faq-content-19a" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                El compromiso relacionado a la ayuda ofrecida al miembro culmina una
+                                vez este fallece y los servicios hayan sido coordinados y pagados.
+                                No obstante, como parte de su misión, visión y objetivos, el Ministerio
+                                AME continua en comunicación con los deudos ofreciéndoles ayuda emocional
+                                y espiritual en la medida que lo necesiten.
+
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-20a">
+                                <span class="num">20.</span>
+                                ¿Qué pasa si me mudo de lugar, podría seguir perteneciendo al ministerio?
+                            </button>
+                        </h3>
+                        <div id="faq-content-20a" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                En el caso de mudanza a otro lugar, los Miembros pueden continuar participando
+                                del Ministerio AME, siempre y cuando se muden a alguno de los estados de Estados
+                                Unidos de América o algún país de habla hispana, donde los asuntos políticos y
+                                legales nos permitan realizar la coordinación de los servicios funerales cuando
+                                sea necesario.
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- End Frequently Asked Questions Section -->
+<!-- ======= Frequently Asked Questions Section ======= -->
+<section id="faq" class="faq">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+            <h2>Relacionadas al COVID 19</h2>
+            <p> </p>
+        </div>
+
+        <div class="row gy-4">
+
+            <div class="col-lg-12">
+
+                <div class="accordion accordion-flush" id="faqlist" data-aos="fade-up" data-aos-delay="100">
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1c">
+                                <span class="num">1.</span>
+                                ¿Está el Ministerio ofreciendo servicios durante la Pandemia causada por el COVID 19?
+
+                            </button>
+                        </h3>
+                        <div id="faq-content-1c" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                SI, se están ofreciendo los servicios administrativos y de la Ayuda Ofrecida
+                                según aparecen en el comunicado de las Medidas para tiempos de Emergencias.
+                                Puede hacer referencia a este comunicado en la página cibernética (ministeriosame.org)
+                                del Ministerio o llamar a la oficina (407-673-7263) para que se le envíe una copia por
+                                correo electrónico o mensaje de texto.
+                                 
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2c">
+                                <span class="num">2.</span>
+                                ¿Puedo continuar enviado mis aportaciones por correo como regularmente lo hago?
+                            </button>
+                        </h3>
+                        <div id="faq-content-2c" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                NO, en estos momentos no es recomendable para los Miembros, ni para el personal de oficina, salir a enviar o recoger correspondencias al correo.  Le sugerimos que llame al teléfono de la oficina (407-673-7263) y registre una tarjeta de donde podemos hacer el retiro de sus aportaciones.
+
+                                Si no puede o no desea dejar la tarjeta registrada, puede llamas cada mes para hacer la aportación.
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3c">
+                                <span class="num">3.</span>
+                                ¿Se pueden realizar los servicios funerales de una persona que fallezca a causa de infección con el COVID 19?
+                            </button>
+                        </h3>
+                        <div id="faq-content-3c" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                La práctica general es que estos cuerpos son trasladados directamente del lugar donde fallecen hasta el lugar de la disposición final, sea esta un cementerio o un lugar para realizar una cremación.  Esto se complica si el fallecido no es Miembro del Ministerio AME y la familia no cuenta con los recursos económicos para cubrir estos gastos.
+
+                                Cabe señalar que cada día se toman nuevas medidas y que esto podría no realizarse de esta manera en cualquier momento.
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-4c">
+                                <span class="num">4.</span>
+                                ¿Permite la funeraria o el hospital que los familiares puedan ver por unos minutos o segundos el cuerpo de una persona que falleció a causa del COVID 19, antes de llevárselo al lugar de disposición final?
+                            </button>
+                        </h3>
+                        <div id="faq-content-4c" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                NO, si estaba en el hospital o en alguna institución de cuidado médico el cuerpo será trasladado sin la posibilidad de que los familiares puedan estar presentes.
+
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-5c">
+                                <span class="num">5.</span>
+                                ¿Si no se realiza un servicio funeral, ya que el cuerpo es trasladado directamente al cementerio, puede entonces el Ministerio AME pagar por los gastos del Cementerio?
+                            </button>
+                        </h3>
+                        <div id="faq-content-5c" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                NO, el hecho de no exponer el cuerpo no significa que no hay que pagar por los
+                                servicios de la funeraria.  Si la familia así lo desea, el Ministerio pagará por
+                                el costo de la cremación como método de disposición final. 
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+                     
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section><!-- End Frequently Asked Questions Section -->

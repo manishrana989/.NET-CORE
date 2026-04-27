@@ -1,0 +1,77 @@
+﻿<div ng-controller="funerariasDetailController as vm">
+    <umb-editor-view>
+        <umb-editor-header name="'Funeral Home Profile'"
+                           hide-alias="true"
+                           hide-icon="true"
+                           hide-description="true">
+        </umb-editor-header>
+
+        <umb-editor-container>
+            <umb-load-indicator ng-if="vm.loading"></umb-load-indicator>
+            <div ng-if="vm.errorMessage" class="notification notification-error">
+                {{ vm.errorMessage }}
+            </div>
+
+            <div class="flex" style="gap:20px;">
+                <umb-box style="flex-grow: 1" ng-if="!vm.loading">
+                    <umb-box-content>
+                        <umb-control-group label="Funeral Home Name">
+                            {{ vm.funeralHome.name }}
+                        </umb-control-group>
+                        <umb-control-group label="Phone Number">
+                            {{ vm.funeralHome.phoneNumber }}
+                        </umb-control-group>
+                        <umb-control-group label="Email">
+                            {{ vm.funeralHome.emailAddress }}
+                        </umb-control-group>
+                        <umb-control-group label="Contract">
+                            {{ vm.funeralHome.contract }}
+                        </umb-control-group>
+                        <umb-control-group label="Price for Service">
+                            {{ vm.funeralHome.priceForService | currency }}
+                        </umb-control-group>
+                        <umb-control-group label="Director Name">
+                            {{ vm.funeralHome.directorName }}
+                        </umb-control-group>
+                        <umb-control-group label="Funeral Home Owner Name">
+                            {{ vm.funeralHome.funeralHomeOwnerName }}
+                        </umb-control-group>
+
+                    </umb-box-content>
+                </umb-box>
+            </div>
+            <uui-table aria-label="FuneralHome table">
+                <uui-table-head>
+                    <uui-table-head-cell>Name</uui-table-head-cell>
+                    <uui-table-head-cell>Director Name</uui-table-head-cell>
+                </uui-table-head>
+
+                <uui-table-row ng-repeat="funeralhome in vm.filteredHomes">
+                    <uui-table-cell>
+                        <a href="#" ng-click="vm.clickItem(funeralhome); $event.preventDefault();" aria-label="Navigate to {{funeralhome.name}} profile">{{funeralhome.name}}</a>
+                    </uui-table-cell>
+                    <uui-table-cell>{{funeralhome.directorName}}</uui-table-cell>
+                </uui-table-row>
+
+
+                <div class="flex" style="gap:20px;">
+                    <umb-box style="flex-grow: 1;" ng-if="!vm.loading">
+                        <umb-box-content>
+                            <!-- Add more fields as needed -->
+                        </umb-box-content>
+                    </umb-box>
+                </div>
+</umb-editor-container>
+
+        <umb-editor-footer>
+            <umb-editor-footer-content-right>
+                <umb-button type="button"
+                            button-style="success"
+                            label-key="buttons_save"
+                            action="vm.save()"
+                            disabled="vm.loading">
+                </umb-button>
+            </umb-editor-footer-content-right>
+        </umb-editor-footer>
+    </umb-editor-view>
+</div>

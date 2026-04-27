@@ -1,0 +1,10 @@
+﻿@inherits Umbraco.Cms.Web.Common.Macros.PartialViewMacroPage
+
+@{
+    var form=Model.GetParameterValue<int>("formId");
+}
+@if (form > 0)
+{
+    @await Component.InvokeAsync("UForm",new  { id = form })
+
+}

@@ -1,0 +1,27 @@
+﻿<div class="umb-dialog umb-pane" ng-controller="importController">
+    <div class="umb-dialog-body with-footer">
+        <div class="umb-pane">
+            <ng-form name="importForm" val-form-manager>
+                <umb-property property="fileProperty">
+                    <umb-property-editor model="fileProperty"></umb-property-editor>
+                </umb-property>
+            </ng-form>
+            <div class="umb-dialog-footer btn-toolbar umb-btn-toolbar">
+
+                <umb-button label-key="general_cancel"
+                            action="cancel()"
+                            type="button"
+                            button-style="link">
+                </umb-button>
+
+                <umb-button action="importCsv()"
+                            type="button"
+                            button-style="success"
+                            label-key="general_import">
+
+                </umb-button>
+
+            </div>
+        </div>
+    </div>
+</div>

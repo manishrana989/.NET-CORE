@@ -1,0 +1,124 @@
+﻿<umb-editor-sub-header>
+    <umb-editor-sub-header-content-left>
+        <umb-editor-sub-header-section>
+            <umb-button ng-show="ListCtrl.permissions.canUpdate" action="create()"
+                        type="button"
+                        button-style="outline"
+                        label-key="actions_create">
+            </umb-button>
+            <umb-button ng-if="!sortingMode"
+                        type="button"
+                        button-style="outline"
+                        label-key="general_reorder"
+                        action="openSortMode();"
+                        icon="icon-navigation"
+                        size="xs">
+            </umb-button>
+            <umb-button ng-if="sortingMode"
+                        type="button"
+                        button-style="outline"
+                        label-key="buttons_save"
+                        action="saveSort();"
+                        icon="icon-save"
+                        size="xs">
+            </umb-button><umb-button ng-if="sortingMode"
+                                     type="button"
+                                     button-style="outline"
+                                     label-key="general_cancel"
+                                     action="cancelSort()"
+                                     icon="icon-delete"
+                                     size="xs">
+            </umb-button>
+        </umb-editor-sub-header-section>
+    </umb-editor-sub-header-content-left>
+
+    <umb-editor-sub-header-content-right>
+        <umb-editor-sub-header-section>
+            <ng-form class="form-search pull-right" novalidate="">
+                <div class="inner-addon left-addon">
+                    <i class="icon icon-search"></i>
+                    <input type="text" class="form-control" placeholder="{{searchPlaceholder}}" ng-model="searchText" prevent-enter-submit="" no-dirty-check="" ng-change="search(searchText)">
+                </div>
+            </ng-form>
+        </umb-editor-sub-header-section>
+        <umb-editor-sub-header-section>
+            <umb-button ng-show="filters.length > 0" type="button"
+                        button-style="outline"
+                        label-key="{{filtersButtonKey}}"
+                        action="toggleFiltersMode();"
+                        icon="icon-filter"
+                        size="xs">
+            </umb-button>
+        </umb-editor-sub-header-section>
+        <umb-button ng-show="ListCtrl.items.length > 0" action="exportCsv()"
+                    type="button"
+                    button-style="outline"
+                    label-key="general_export">
+        </umb-button>
+
+    </umb-editor-sub-header-content-right>
+</umb-editor-sub-header>
+<div ng-show="showFilters" class="umb-group-panel ">
+    <div class="umb-group-panel__content">
+        <div class="form-horizontal">
+            <ng-form name="filterForm">
+                <umb-property property="property" ng-repeat="property in filters">
+                    <umb-property-editor ng-mouseleave="clearDirty()"  model="property"></umb-property-editor>
+                </umb-property>
+                <div style="padding-top:25px">
+                    <button type="button" class="btn umb-button__button btn-success umb-button-- umb-outline" ng-click="filterResult()"> <span class="umb-button__content ng-binding"> <localize key="general_filter">Filter</localize></span> </button>
+                </div>
+            </ng-form>
+        </div>
+    </div>
+</div>
+<umb-load-indicator ng-show="!viewLoaded"></umb-load-indicator>
+<div class="umb-table" ng-show="viewLoaded">
+    <div class="umb-table-head">
+        <div class="umb-table-row">
+            <!-- We leave this first on empty in the header & show icons in the body -->
+            <div class="umb-table-cell" ng-if="sortingMode"></div>
+            <div class="umb-table-cell" style="flex: 0 0 45px"><button class="umb-table-head__link sortable" ng-click="sort('Id')">Id <i class="umb-table-head__icon icon" aria-hidden="true" ng-class="{'icon-navigation-up': checkSortOrder('Id')=='asc', 'icon-navigation-down': checkSortOrder('Id') == 'desc'}"></i></button></div>
+            <div class="umb-table-cell" ng-repeat="item in ListCtrl.model.properties | filter:{ displayInList: 'true'} "><button class="umb-table-head__link sortable" ng-click="sort(item.alias)">{{item.label}} <i class="umb-table-head__icon icon" aria-hidden="true" ng-class="{'icon-navigation-up': checkSortOrder(item.alias)=='asc', 'icon-navigation-down': checkSortOrder(item.alias)=='desc'}"></i></button></div>
+            <div class="umb-table-cell"><button class="umb-table-head__link sortable" ng-click="sort('SortOrder')"> <localize key="general_sortOrder">Sort Order</localize> <i class="umb-table-head__icon icon" aria-hidden="true" ng-class="{'icon-navigation-up': checkSortOrder('SortOrder')=='asc', 'icon-navigation-down': checkSortOrder('SortOrder')=='desc'}"></i></button></div>
+            <div class="umb-table-cell" style="text-align:right;display:block">  <localize key="general_actions">Actions</localize></div>
+        </div>
+    </div>
+    <div class="umb-table-body" ui-sortable="sortableOptions" ng-model="ListCtrl.items">
+        <div class="umb-table-row" ng-repeat="item in ListCtrl.items">
+            <div class="umb-table-cell" ng-if="sortingMode">
+                <umb-icon icon="icon-navigation"
+                          class="umb-group-builder__group-title-icon">
+                </umb-icon>
+            </div>
+            <div class="umb-table-cell" style="flex: 0 0 45px">
+                <a href="/umbraco#/dbExtensionKit/objects/edit/{{ListCtrl.model.id}}?item={{item.id}}">
+                    {{item.id}}
+                </a>             
+            </div>
+            <div class="umb-table-cell" ng-repeat="(propIndex, prop) in item.properties | filter:{ displayInList: 'true'} track by propIndex">
+                <a ng-if="propIndex == 0" href="/umbraco#/dbExtensionKit/objects/edit/{{ListCtrl.model.id}}?item={{item.id}}">
+                    {{prop.value}}
+                </a>
+                <span ng-if="propIndex != 0" title="{{prop.value}}">
+                   {{prop.value}}
+                </span>
+            </div>
+            <div class="umb-table-cell" ng-if="!sortingMode">{{item.sortOrder}}</div>
+            <div class="umb-table-cell" ng-if="sortingMode"><input name="propertySortOrder" type="number" class="umb-group-builder__group-sort-value umb-property-editor-tiny ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="item.sortOrder" aria-invalid="false" style="margin-left:0" /></div>
+            <div class="umb-table-cell" style="text-align:right;display:block">
+                <i ng-show="ListCtrl.permissions.canDelete" ng-click="delete(item)" title="Delete" class="umb-table-body__icon icon-trash" style="margin-left: 10px; margin-right: 0px;"></i>
+                <i ng-show="ListCtrl.permissions.canUpdate" ng-click="copy(item)" title="Copy" class="umb-table-body__icon icon-documents" style="margin-left: 10px; margin-right: 0px; "></i>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="flex justify-center">
+    <umb-pagination page-number="pagination.pageNumber"
+                    total-pages="pagination.totalPages"
+                    on-next="nextPage"
+                    on-prev="prevPage"
+                    on-change="changePage"
+                    on-go-to-page="goToPage">
+    </umb-pagination>
+</div>

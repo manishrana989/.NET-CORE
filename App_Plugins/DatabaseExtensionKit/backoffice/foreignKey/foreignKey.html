@@ -1,0 +1,41 @@
+﻿<div ng-controller="ForeignKeyController" class="umb-property-editor umb-contentpicker">
+
+    <ng-form name="contentPickerForm">
+
+        <div>
+            <umb-node-preview ng-repeat="node in renderModel track by node.id"
+                              icon="node.icon"
+                              name="node.name"
+                              published="node.published"
+                              description="node.url"
+                              allow-remove="allowRemoveButton"
+                              allow-open="model.config.showOpenButton && allowOpenButton && !dialogEditor"
+                              on-remove="remove()">
+            </umb-node-preview>
+
+            <button ng-show="model.config.multiPicker === true && renderModel.length < maxNumberOfItems || renderModel.length === 0 || !maxNumberOfItems"
+                    type="button"
+                    class="umb-node-preview-add"
+                    ng-click="openCurrentPicker()"
+                    id="{{model.alias}}"
+                    aria-label="{{model.label}}: {{labels.general_add}}">
+                <localize key="general_add">Add</localize>
+                <span class="sr-only">...</span>
+            </button>
+
+        </div>
+
+        <input type="hidden" name="modelValue" ng-model="model.value" />
+        <input type="hidden" name="minCount" ng-model="renderModel" />
+
+        <div ng-messages="contentPickerForm.minCount.$error" show-validation-on-submit>
+            <div class="help-inline" ng-message="minCount">
+                <localize key="validation_minCount">You need to add at least</localize> {{minNumberOfItems}} <localize key="validation_items">items</localize>
+            </div>
+        </div>
+
+
+
+    </ng-form>
+
+</div>

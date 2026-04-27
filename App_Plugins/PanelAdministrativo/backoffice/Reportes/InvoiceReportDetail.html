@@ -1,0 +1,84 @@
+﻿<div ng-controller="InvoiceReportDetailcontroller as vm">
+    <umb-editor-view>
+        <umb-editor-header name="'Invoice Report Details'"
+                           hide-alias="true"
+                           hide-icon="true"
+                           hide-description="true">
+        </umb-editor-header>
+
+        <umb-editor-container>
+            <umb-load-indicator ng-if="vm.loading"></umb-load-indicator>
+            <div ng-if="vm.errorMessage" class="notification notification-error">
+                {{ vm.errorMessage }}
+            </div>
+
+            <div class="flex" style="gap:20px;">
+                <umb-box style="flex-grow: 1" ng-if="!vm.loading">
+                    <umb-box-content>
+                        <umb-control-group label="Report Name">
+                            {{ vm.invoiceReport.reportName }}
+                        </umb-control-group>
+                        <umb-control-group label="Member Name">
+                            {{ vm.invoiceReport.member }}
+                        </umb-control-group>
+                        <umb-control-group label="Supported Member">
+                            {{ vm.invoiceReport.supportedMember }}
+                        </umb-control-group>
+                        <umb-control-group label="Dependent Member">
+                            {{ vm.invoiceReport.dependentMember }}
+                        </umb-control-group>
+                        <umb-control-group label="Previous Balance">
+                            {{ vm.invoiceReport.previousBalance }}
+                        </umb-control-group>
+                        <umb-control-group label="Current Balance">
+                            {{ vm.invoiceReport.currentBalance }}
+                        </umb-control-group>
+                        <umb-control-group label="Payment Made">
+                            {{ vm.invoiceReport.paymentMade }}
+                        </umb-control-group>
+                        <umb-control-group label="Date of Payment Made">
+                            {{ vm.invoiceReport.dateOfPaymentMade | date:'yyyy-MM-dd' }}
+                        </umb-control-group>
+                        <umb-control-group label="Supporting Contribution">
+                            {{ vm.invoiceReport.supportingContribution }}
+                        </umb-control-group>
+                        <umb-control-group label="Dependent Contribution">
+                            {{ vm.invoiceReport.dependentContribution }}
+                        </umb-control-group>
+                        <umb-control-group label="Deceased This Month">
+                            {{ vm.invoiceReport.deceasedThisMonth }}
+                        </umb-control-group>
+                        <umb-control-group label="Is Church Member">
+                            {{ vm.invoiceReport.isChurchMember ? 'Yes' : 'No' }}
+                        </umb-control-group>
+                        <umb-control-group label="Deceased Count Month">
+                            {{ vm.invoiceReport.deceasedCountMonth }}
+                        </umb-control-group>
+                        <umb-control-group label="Deceased CountYTD">
+                            {{ vm.invoiceReport.deceasedCountYTD }}
+                        </umb-control-group>
+
+                    </umb-box-content>
+                </umb-box>
+            </div>
+            <uui-table aria-label="Invoice Report table">
+                <uui-table-head>
+                    <uui-table-head-cell>Supported Member</uui-table-head-cell> 
+                    <uui-table-head-cell>Dependent Member</uui-table-head-cell> 
+                </uui-table-head>
+
+                <uui-table-row ng-repeat="report in vm.filteredInvoiceReports">
+                    <uui-table-cell>
+                        {{ report.supportedMemberName }} 
+                    </uui-table-cell>
+                    <uui-table-cell>
+                        {{ report.dependentMemberName }} 
+                    </uui-table-cell>
+                  
+                   
+       
+                </uui-table-row>
+        </umb-editor-container>
+
+    </umb-editor-view>
+</div>

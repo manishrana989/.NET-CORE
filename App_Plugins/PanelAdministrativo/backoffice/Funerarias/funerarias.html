@@ -1,0 +1,84 @@
+﻿<div ng-controller="funerariasController as vm">
+    <!-- Editor Container -->
+    <umb-editor-container>
+        <div class="umb-editor-content__inner mt4">
+            <div class="flex" style="gap:20px;">
+                <umb-box>
+                    <umb-box-header>
+                        <h2>{{vm.content.title}}</h2>
+                    </umb-box-header>
+                    <umb-box-content>
+                        <p>{{ vm.content.description }}</p>
+                    </umb-box-content>
+                </umb-box>
+                <umb-box>
+                    <umb-box-header>
+                        <h2>{{vm.content.title}}</h2>
+                    </umb-box-header>
+                    <umb-box-content>
+                        <p>{{ vm.content.description }}</p>
+                    </umb-box-content>
+                </umb-box>
+                <umb-box>
+                    <umb-box-header>
+                        <h2>{{vm.content.title}}</h2>
+                    </umb-box-header>
+                    <umb-box-content>
+                        <p>{{ vm.content.description }}</p>
+                    </umb-box-content>
+                </umb-box>
+                <umb-box>
+                    <umb-box-header>
+                        <h2>{{vm.content.title}}</h2>
+                    </umb-box-header>
+                    <umb-box-content>
+                        <p>{{ vm.content.description }}</p>
+                    </umb-box-content>
+                </umb-box>
+                <!-- Additional boxes can be added here -->
+            </div>
+        </div>
+        <umb-editor-sub-header-content-right>
+            <umb-search-filter model="vm.searchQuery" on-change="vm.filterHomes()" placeholder="Search funeral homes...">
+            </umb-search-filter>
+
+            <button type="button" class="btn btn-primary" ng-click="vm.AddProfileclickItem()">
+                Add Funeral Home
+            </button>
+        </umb-editor-sub-header-content-right>
+
+        <uui-table aria-label="FuneralHome table">
+            <uui-table-head>
+                <uui-table-head-cell>Name</uui-table-head-cell>
+                <uui-table-head-cell>Contract</uui-table-head-cell>
+                <uui-table-head-cell>Phone Number</uui-table-head-cell>
+                <uui-table-head-cell>Email</uui-table-head-cell>
+                <uui-table-head-cell>Price for Service</uui-table-head-cell>
+                <uui-table-head-cell>Director Name</uui-table-head-cell>
+                <uui-table-head-cell>Owner Name</uui-table-head-cell>
+                <uui-table-head-cell>Actions</uui-table-head-cell>
+            </uui-table-head>
+
+            <uui-table-row ng-repeat="funeralhome in vm.filteredhomes">
+                <uui-table-cell>
+                    <a href="#" ng-click="vm.clickItem(funeralhome); $event.preventDefault();" aria-label="Navigate to {{funeralhome.name}} profile">{{funeralhome.name}}</a>
+                </uui-table-cell>
+                <uui-table-cell>{{funeralhome.contract}}</uui-table-cell>
+                <uui-table-cell>{{funeralhome.phoneNumber}}</uui-table-cell>
+                <uui-table-cell>{{funeralhome.emailAddress}}</uui-table-cell>
+                <uui-table-cell>{{funeralhome.priceForService | currency}}</uui-table-cell>
+                <uui-table-cell>{{funeralhome.directorName}}</uui-table-cell>
+                <uui-table-cell>{{funeralhome.funeralHomeOwnerName}}</uui-table-cell>
+                <uui-table-cell>
+                    <button type="button" class="btn btn-primary btn-sm button-spacing" ng-click="vm.editProfileclickItem(funeralhome)">Edit</button>
+                    <button type="button" class="btn btn-danger btn-sm" ng-click="vm.deletefuneralhome(funeralhome)">Delete</button>
+                </uui-table-cell>
+
+            </uui-table-row>
+
+            <uui-table-row ng-if="!vm.filteredhomes.length">
+                <uui-table-cell colspan="8">No funeral homes found matching your search criteria.</uui-table-cell>
+            </uui-table-row>
+        </uui-table>
+    </umb-editor-container>
+</div>

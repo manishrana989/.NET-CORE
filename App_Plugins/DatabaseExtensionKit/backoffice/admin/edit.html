@@ -1,0 +1,54 @@
+﻿<div ng-controller="editAdminController">
+    <ng-form>
+        <umb-editor-view>
+            <umb-editor-header name="model.name"
+                               hide-alias="true"
+                               hide-description="true"
+                               hide-icon="true"
+                               name-locked ="model.id > 0">
+            </umb-editor-header>
+            <umb-editor-container>
+                <div class="umb-editor-sub-header umb-editor-sub-header--white">
+                    <div class="right umb-editor-sub-header__content-right ng-scope">
+                    <umb-button alias="reorder"
+                                ng-if="sorting !== false"
+                                type="button"
+                                button-style="outline"
+                                label-key="{{sortingButtonKey}}"
+                                icon="icon-navigation"
+                                action="toggleSortingMode();"
+                                size="xs">
+                    </umb-button>
+                        </div>
+                </div>
+
+                <div class="umb-group-panel ">
+                    <div class="umb-group-panel__content">
+                        <div class="form-horizontal">
+                            <ul class="umb-group-builder__properties" ui-sortable="sortableOptionsProperty" ng-model="model.properties" ng-show="model.properties.length > 0 || sortingMode">
+                                <li ng-repeat="(propertyIndex, property) in model.properties track by propertyIndex" ng-class="{'umb-group-builder__property-sortable': sortingMode && !property.inherited}">
+                                    <umb-content-type-property ng-if="property.propertyState !== 'init'"
+                                                               property="property"
+                                                               sortable="sortingMode"
+                                                               on-edit="editPropertyTypeSettings(property)"
+                                                               on-remove="deleteProperty(model.properties, property)"
+                                                               on-click-composition="openContentType(contentTypeId)"
+                                                               on-change-sort-order-value="onChangePropertySortOrderValue(property)">
+                                    </umb-content-type-property>
+                                </li>
+                            </ul>
+                            <button ng-if="!sortingMode" type="button" data-element="property-add" class="umb-group-builder__group-add-property ng-scope" ng-click="addNewProperty(group)">
+                                <localize key="contentTypeEditor_addProperty">Add property</localize>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </umb-editor-container>
+            <umb-editor-footer>
+                <umb-editor-footer-content-right>
+                    <button type="button" class="btn umb-button__button btn-success umb-button-- umb-outline" ng-click="save()"> <span class="umb-button__content ng-binding">  <localize key="buttons_save">Save</localize></span> </button>
+                </umb-editor-footer-content-right>
+            </umb-editor-footer>
+        </umb-editor-view>
+        </ng-form>
+</div>

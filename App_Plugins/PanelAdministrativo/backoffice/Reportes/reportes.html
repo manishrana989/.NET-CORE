@@ -1,0 +1,104 @@
+﻿<div ng-controller="reportesController as vm">
+
+    <umb-editor-container>
+        <div class="umb-editor-content__inner mt4">
+      
+            <div class="flex" style="gap:20px;">
+                <umb-box>
+                    <umb-box-header>
+                        <h2>{{vm.content.title}}</h2>
+                    </umb-box-header>
+                    <umb-box-content>
+                        <p>{{ vm.content.description }}</p>
+                    </umb-box-content>
+                </umb-box>
+     
+            </div>
+        </div>
+
+        <div class="mt4">
+            <h3>Invoice Reports</h3>
+            <umb-editor-sub-header-content-right>
+                <umb-search-filter model="vm.invoiceSearchQuery" on-change="vm.filterReports()" placeholder="Search Invoice Reports...">
+                </umb-search-filter>
+
+                <button type="button" class="btn btn-primary" ng-click="vm.AddProfileclickItem()">
+                    Add Invoice Report
+                </button>
+            </umb-editor-sub-header-content-right>
+
+     
+            <uui-table aria-label="Invoice Report table">
+                <uui-table-head>
+                    <uui-table-head-cell>Report Name</uui-table-head-cell>
+                    <uui-table-head-cell>Member</uui-table-head-cell>
+                    <uui-table-head-cell>Supported Member</uui-table-head-cell>
+                    <uui-table-head-cell>Dependent Member</uui-table-head-cell>
+                    <uui-table-head-cell>Previous Balance</uui-table-head-cell>
+                    <uui-table-head-cell>Current Balance</uui-table-head-cell>
+                    <uui-table-head-cell>Payment Made</uui-table-head-cell>
+                    <uui-table-head-cell>Date of Payment</uui-table-head-cell>
+                    <uui-table-head-cell>Supporting Contribution</uui-table-head-cell> 
+                    <uui-table-head-cell>Dependent Contribution</uui-table-head-cell> 
+                    <uui-table-head-cell>Deceased This Month</uui-table-head-cell> 
+                    <uui-table-head-cell>Is Church Member</uui-table-head-cell> 
+                    <uui-table-head-cell>Deceased Count (Month)</uui-table-head-cell> 
+                    <uui-table-head-cell>Deceased Count (YTD)</uui-table-head-cell> 
+                </uui-table-head>
+
+                <uui-table-row ng-repeat="report in vm.filteredInvoiceReports">
+                    <uui-table-cell>
+                        <a href="#" ng-click="vm.clickItem(report); $event.preventDefault();" aria-label="View {{report.reportName}} details">{{report.reportName}}</a>
+                    </uui-table-cell>
+                    <uui-table-cell>
+                        {{ report.memberName }}
+                    </uui-table-cell>
+                    <uui-table-cell>
+                        {{ report.supportedMemberName }}
+                    </uui-table-cell>
+                    <uui-table-cell>
+                        {{ report.dependentMemberName }}
+                    </uui-table-cell>
+                    <uui-table-cell>
+                        {{ report.previousBalance | currency }}
+                    </uui-table-cell>
+                    <uui-table-cell>
+                        {{ report.currentBalance | currency }}
+                    </uui-table-cell>
+                    <uui-table-cell>
+                        {{ report.paymentMade }}
+                    </uui-table-cell>
+                    <uui-table-cell>
+                        {{ report.dateOfPaymentMade | date:'shortDate' }}
+                    </uui-table-cell>
+                    <uui-table-cell>
+                        {{ report.supportingContribution | currency }} 
+                    </uui-table-cell>
+                    <uui-table-cell>
+                        {{ report.dependentContribution | currency }} 
+                    </uui-table-cell>
+                    <uui-table-cell>
+                        {{ report.deceasedThisMonth }} 
+                    </uui-table-cell>
+                    <uui-table-cell>
+                        {{ report.isChurchMember ? 'Yes' : 'No' }}
+                    </uui-table-cell>
+                    <uui-table-cell>
+                        {{ report.deceasedCountMonth }} 
+                    </uui-table-cell>
+                    <uui-table-cell>
+                        {{ report.deceasedCountYTD }}
+                    </uui-table-cell>
+                    <uui-table-cell>
+                        <button type="button" class="btn btn-primary btn-sm button-spacing" ng-click="vm.editProfileclickItem(report)">Edit</button>
+                        <button type="button" class="btn btn-danger btn-sm" ng-click="vm.deleteInvoiceReport(report)">Delete</button>
+                    </uui-table-cell>
+                </uui-table-row>
+
+                <uui-table-row ng-if="!vm.filteredInvoiceReports.length">
+                    <uui-table-cell colspan="12">No invoice reports found matching your search criteria.</uui-table-cell>
+                </uui-table-row>
+            </uui-table>
+        </div>
+    </umb-editor-container>
+</div>

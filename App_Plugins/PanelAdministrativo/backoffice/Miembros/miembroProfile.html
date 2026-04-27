@@ -1,0 +1,145 @@
+﻿<div ng-controller="MiembroProfileController as vm">
+    <umb-editor-view>
+        <umb-editor-header name="'Miembro Perfil'"
+                           hide-alias="true"
+                           hide-icon="true"
+                           hide-description="true">
+        </umb-editor-header>
+
+        
+        <umb-editor-container>
+            <umb-load-indicator ng-if="vm.loading"></umb-load-indicator>
+            <div class="flex" style="gap:20px;">
+                <!-- What input fields would look like-->
+                <!--<umb-box style="flex-grow: 1;" ng-if="!vm.loading">
+                <umb-box-content>
+                    <umb-control-group label="Name">
+                        <input type="text" ng-model="vm.member.Name" />
+                    </umb-control-group>
+                    <umb-control-group label="Email">
+                        <input type="email" ng-model="vm.member.Email" />
+                    </umb-control-group>
+                </umb-box-content>
+            </umb-box>-->
+                <!-- What input fields would look like END-->
+
+                <umb-box style="flex-grow: 1" ng-if="!vm.loading">
+                    <umb-box-content>
+                        <umb-control-group label="Nombre">
+                            {{vm.member.Name}}  {{vm.member.LName}}
+                        </umb-control-group>
+                        <umb-control-group label="Correo Electronico">
+                            {{vm.member.Email}}
+                        </umb-control-group>
+                        <umb-control-group label="Telefono">
+                            {{vm.member.Phone}}
+                        </umb-control-group>
+                        <umb-control-group label="Dirreccion">
+                            {{vm.member.Address}}
+                        </umb-control-group>
+                        <umb-control-group label="Pais">
+                            {{vm.member.Country}}
+                        </umb-control-group>
+                        <umb-control-group label="Fecha de Nacimiento">
+                            {{vm.member.DateOfBirth}}
+                        </umb-control-group>
+                        <umb-control-group label="Personas Autorizadas">
+                            {{vm.member.AuthorizedPersons}}
+                        </umb-control-group>
+                    </umb-box-content>
+                </umb-box>
+                <umb-box style="flex-grow: 1;" ng-if="!vm.loading">
+                    <umb-box-content>
+                        <umb-control-group label="Estatus">
+                            {{vm.member.MemberStatus}}
+                        </umb-control-group>
+                        <umb-control-group label="Miembro Tipo">
+                            {{vm.member.MemberType}}
+                        </umb-control-group>
+                        <umb-control-group label="Fecha de applicacion">
+                            {{vm.member.DateMembershipBegan}}
+                        </umb-control-group>
+                        <umb-control-group label="Iglesia">
+                            <ol>
+                                <li ng-repeat="church in vm.member.Church.split('\r\n') track by $index">
+                                    {{ church }}
+                                </li>
+                            </ol>
+                        </umb-control-group>
+                        <!-- Add more fields as needed -->
+                    </umb-box-content>
+                </umb-box>
+                <umb-box style="flex-grow: 1;" ng-if="!vm.loading">
+                    <umb-box-content>
+                        <umb-control-group label="Coordinador?">
+                            {{vm.member.MemberIsCoordinator}}
+                        </umb-control-group>
+                        <umb-control-group label="Classificacion">
+                            {{vm.member.MemberClassification}}
+                        </umb-control-group>
+                        <umb-control-group label="Member Convalecent">
+                            {{vm.member.MemberConvalescent}}
+                        </umb-control-group>
+                        <umb-control-group label="Contribution Type">
+                            {{vm.member.ContributionType}}
+                        </umb-control-group>
+                        <umb-control-group label="Notas">
+                            {{vm.member.MemberNotes}}
+                        </umb-control-group>
+                        <!-- Add more fields as needed -->
+                    </umb-box-content>
+                </umb-box>
+            </div>
+            <div class="flex" style="gap:20px;">
+                <umb-box style="flex-grow: 1;" ng-if="!vm.loading">
+                    <umb-box-content>
+                        <umb-control-group label="Dependes">
+
+                            <uui-table aria-label="">
+                                <uui-table-column style="width: 50%"></uui-table-column>
+                                <uui-table-column style="width: 50%"></uui-table-column>
+
+                                <uui-table-head>
+                                    <uui-table-head-cell>Nombre</uui-table-head-cell>
+                                    <uui-table-head-cell>Estatus</uui-table-head-cell>
+                                </uui-table-head>
+
+                                <uui-table-row ng-repeat="depende in vm.member.Dependes">
+                                    <uui-table-cell>
+                                        {{depende.Name}}
+                                    </uui-table-cell>
+                                    <uui-table-cell>
+                                        {{depende.IsApproved ? 'Activo' : 'Inactivo'}}
+                                    </uui-table-cell>
+                                </uui-table-row>
+                            </uui-table>
+
+
+                        </umb-control-group>
+                    </umb-box-content>
+                </umb-box>
+            </div>
+            <div class="flex" style="gap:20px;">
+                <umb-box style="flex-grow: 1;" ng-if="!vm.loading">
+                    <umb-box-content>
+                        <umb-control-group label="Reportes">
+
+                        </umb-control-group>
+
+                    </umb-box-content>
+                </umb-box>
+            </div>
+        </umb-editor-container>
+
+        <umb-editor-footer>
+            <umb-editor-footer-content-right>
+                <umb-button type="button"
+                            button-style="success"
+                            label-key="buttons_save"
+                            action="vm.save()"
+                            disabled="vm.loading">
+                </umb-button>
+            </umb-editor-footer-content-right>
+        </umb-editor-footer>
+    </umb-editor-view>
+</div>

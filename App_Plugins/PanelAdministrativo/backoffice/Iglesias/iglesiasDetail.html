@@ -1,0 +1,80 @@
+﻿<div ng-controller="iglesiasDetailController as vm">
+    <umb-editor-view>
+        <umb-editor-header name="'Church Profile'"
+                           hide-alias="true"
+                           hide-icon="true"
+                           hide-description="true">
+        </umb-editor-header>
+
+        <umb-editor-container>
+            <umb-load-indicator ng-if="vm.loading"></umb-load-indicator>
+            <div ng-if="vm.errorMessage" class="notification notification-error">
+                {{ vm.errorMessage }}
+            </div>
+
+            <div class="flex" style="gap:20px;">
+                <umb-box style="flex-grow: 1" ng-if="!vm.loading">
+                    <umb-box-content>
+                        <umb-control-group label="Church Name">
+                            {{ vm.church.name }}
+                        </umb-control-group>
+                        <umb-control-group label="PhoneNumber">
+                            {{ vm.church.phoneNumber }}
+                        </umb-control-group>
+                        <umb-control-group label="Email">
+                            {{ vm.church.emailAddress }}
+                        </umb-control-group>
+                        <umb-control-group label="Address">
+                            {{ vm.church.address }}
+                        </umb-control-group>
+                        <umb-control-group label="CoordinatorName">
+                            {{ vm.church.coordinatorName }}
+                        </umb-control-group>
+                        <umb-control-group label="CreatedDate">
+                            {{ vm.church.createdDate }}
+                        </umb-control-group>
+                    </umb-box-content>
+                </umb-box>
+            </div>
+
+    
+            <div>
+                <h3>Members</h3>
+
+
+
+              
+                <uui-table aria-label="Members">
+                    <uui-table-column style="width: 50%"></uui-table-column>
+                    <uui-table-column style="width: 50%"></uui-table-column>
+
+                    <uui-table-head>
+                        <uui-table-head-cell>Name</uui-table-head-cell>
+                        <uui-table-head-cell>Email</uui-table-head-cell>
+                    </uui-table-head>
+
+                    <uui-table-row ng-repeat="members in vm.church.members.split(',') track by $index">
+                        <uui-table-cell>
+                         
+                            <span ng-click="vm.clickMember($index)"
+                                  style="cursor: pointer; color: black; ">
+                                {{ members.trim() }}
+                            </span>
+                        </uui-table-cell>
+                        <uui-table-cell>
+                     
+                            <a ng-href="mailto:{{ vm.church.memberEmails.split(',')[$index].trim() }}"
+                               style="text-decoration: none; color: black;">
+                                {{ vm.church.membersEmails.split(',')[$index].trim() }}
+                            </a>
+                        </uui-table-cell>
+                    </uui-table-row>
+
+                </uui-table>
+            </div>
+
+
+        </umb-editor-container>
+    </umb-editor-view>
+
+

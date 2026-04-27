@@ -1,0 +1,39 @@
+﻿<div ng-controller="editControllerAdmin">
+    <ng-form name="objectForm" val-form-manager>
+        <umb-editor-view>
+            <div class="umb-editor-header">
+                <div class="flex items-center" style="height: 100%;">
+                    <div class="flex items-center" style="flex: 1;">
+                        <button type="button" class="umb-editor-header__back" ng-click="goBack()" ng-show="item != 0" style="margin-right: 15px;">
+                            <span aria-hidden="true" class="umb-icon ng-isolate-scope" icon="fa fa-arrow-left">
+                                <span class="umb-icon__inner fa fa-arrow-left">
+                                    <i class="fa fa-arrow-left"></i>
+                                </span>
+                            </span>
+                        </button>
+
+                        <h1 class="umb-panel-header-name"> {{model.name}}</h1>
+                    </div>
+                </div>
+            </div>
+            <umb-editor-container>
+
+                <div ng-show="item == 0">
+
+                    <list-component model ="model" items="items" children-list="0">
+                    </list-component>
+                </div>
+                <div ng-show="item != 0" ng-include="'/App_Plugins/DatabaseExtensionKit/backoffice/objects/object.html'"></div>
+           </umb-editor-container>
+            <umb-editor-footer>
+                <umb-editor-footer-content-right ng-show="item != 0">
+                    <umb-button action="goBack()"
+                                type="button"
+                                label-key="buttons_returnToList">
+                    </umb-button>
+                    <button ng-show="permissions.canUpdate" type="button" class="btn umb-button__button btn-success umb-button-- umb-outline" ng-click="save()"> <span class="umb-button__content ng-binding"> <localize key="buttons_save">Save</localize></span> </button>
+                </umb-editor-footer-content-right>
+            </umb-editor-footer>
+        </umb-editor-view>
+    </ng-form>
+</div>

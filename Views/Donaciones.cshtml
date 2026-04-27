@@ -1,0 +1,99 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Donaciones>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Master.cshtml";
+}
+
+<!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+        <div class="page-header d-flex align-items-center" style="background-image: url('');">
+            <div class="container position-relative">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <h2 style="padding: 10px;">Donaciones</h2>
+                        <p>Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <ol>
+                    <li><a href="/">Inicio</a></li>
+                    <li>Donaciones</li>
+                </ol>
+            </div>
+        </nav>
+    </div>
+    
+    
+    <!-- End Breadcrumbs -->
+    
+    <!-- =======   Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">  
+
+          <div class="col-lg-12">
+             <form name="PrePage" method = "post" action = "https://Simplecheckout.authorize.net/payment/CatalogPayment.aspx">
+    
+             <input type = "hidden" name = "LinkId" value ="b14a3d71-6006-4f0a-afed-c699fa424088" /> 
+             
+             <input type = "image" src ="//content.authorize.net/images/donate-gold.gif" /> 
+     
+             </form>
+             
+          </div> 
+
+        </div> 
+    </section>
+    
+<!-- End   Section -->
+
+<!-- ======= Como Funciona Section ======= -->
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-header">
+                <h2>COVID-19 FONDO DE CONTRIBUCIÓN.</h2>
+                <p>Asistencia para Funerales</p>
+            </div>
+
+            <div class="row gy-4 align-items-center">
+                <div class="col-lg-12">
+                    <p>
+                        El Ministerio de Ayuda Mutua para Enterramiento, es una Corporación sin fines de lucro que, por los pasados veinte años, ha ayudado a más de 1,720 familias que han sufrido la pérdida de un ser amado. Trayendo consuelo y aliento, no solo en lo económico, sino también en lo emocional y espiritual en momentos difíciles.
+
+                        Hoy el mundo pasa por momentos que, para muchos, no tienen precedentes. Nuestros hermanos y hermanas están perdiendo la batalla ante la lucha contra la enfermedad causada por el COVID-19. Los familiares no siempre cuentan con los recursos para efectuar una disposición digna de los cuerpos, multiplicando así la magnitud de la tragedia.
+                        
+                        Según estadísticas presentadas por la “National Funeral Director Association” para el año 2016 en los Estados Unidos el costo promedio de un funeral con visitación y entierro era de $7,360. Si se incluye una bóveda, algo que generalmente requieren los cementerios, ese costo se elevaba a unos $8,508. Estos datos no incluían los gastos de cementerio, monumento, u otros cargos, como flores u obituarios que son necesarios a la hora de realizar un funeral.
+                        
+                        Como una gran familia, los miembros del Ministerio AME colaboran con una cuota mensual para ayudarse mutuamente con todos estos gastos. Gracias a esta aportación, este Ministerio se mantiene firme ayudando a un promedio de ocho a nueve familias cada mes.
+                        
+                        El Ministerio AME siente la responsabilidad y el llamado de ayudar durante situaciones de emergencia a aquellos que lo necesiten sin medir ningún tipo de separación social. Dios nos ha capacitado en estructura y conocimiento para realizar esta misión, pero necesitamos los recursos financieros necesarios para poder hacerlo. Por tal razón, hemos creado esta campaña llamada: COVID-19 FONDO DE CONTRIBUCION.
+                        
+                        Apelamos a sus buenos deseos de unirse a esta noble causa, para juntos llevar alivio a las diferentes familias que sufren por la muerte de un ser querido durante esta Pandemia.
+                        
+                        Deseamos ayudar la mayor cantidad de personas posible, hay más bendición en dar que en recibir. El dinero recaudado nos permitirá brindarles los tramites funerarios, el proceso de cremación y el ataúd básico que se utiliza para estos fines. Todo lo recaudado será utilizado única y exclusivamente para los artículos y servicios previamente mencionados.
+                        
+                        Puede realizar su contribución través de la página web del Ministerio AME (www.ministeriosame.org) bajo la pestaña de donaciones, o llamando al (787)885-7264 para Puerto Rico y al (407)673-7263 para los Estados Unidos. Debido a las complicaciones causada por esta Pandemia, las líneas telefónicas pudieran estar ocupadas, por favor vuelva a llamar su donativo es muy necesario y valioso.
+                        
+                        También puede hacer un cheque, Giro Postal o Money Order a nombre de: Ministerio de Ayuda Mutua para Enterramiento y enviarla a: <br><br>
+                        
+                        Ministerio AME - COVID-19 Fondo de contribución <br><br> 
+                        
+                        P.O. Box 677606 <br><br>
+                        
+                        Orlando, Florida 32867-7606 <br><br>
+                        
+                        Gracias por su valiosa ayuda, sin usted no fuera posible cumplir nuestra encomienda.<br><br>
+                        
+                        “De gracia recibisteis, dad de gracia” Mateo 10:8
+                    </p> 
+                </div>
+                
+            </div>
+
+        </div>
+    </section>
+    <!-- End Como funciona Section -->

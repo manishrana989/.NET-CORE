@@ -1,0 +1,117 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+    <PackageReference Include="uMarketingSuite" Version="2.3.1" />
+    <PackageReference Include="Umbraco.Cms" Version="13.2.2" />
+    <PackageReference Include="UmbracoSeoVisualizer" Version="13.0.1" />
+    <PackageReference Include="DatabaseExtensionKit" Version="1.0.1" />
+    <PackageReference Include="uSync" Version="13.1.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Opt-in to app-local ICU to ensure consistent globalization APIs across different platforms -->
+    <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
+    <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="72.1.0.3" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings-schema.Umbraco.Cms.json">
+      <DependentUpon>appsettings-schema.json</DependentUpon>
+    </Content>
+    <Content Update="appsettings-schema.usync.json">
+      <DependentUpon>appsettings-schema.json</DependentUpon>
+    </Content>
+    <Content Update="appsettings-schema.cmsimport.json">
+      <DependentUpon>appsettings-schema.json</DependentUpon>
+    </Content>
+    <Content Update="appsettings-schema.Umbraco.Workflow.json">
+      <DependentUpon>appsettings-schema.json</DependentUpon>
+    </Content>
+    <Content Update="appsettings-schema.Umbraco.Licenses.json">
+      <DependentUpon>appsettings-schema.json</DependentUpon>
+    </Content>
+    <Content Update="appsettings-schema.uMarketingSuite.json">
+      <DependentUpon>appsettings-schema.json</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Controllers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Plugins\MinisteriosAME\" />
+    <Folder Include="App_Plugins\MinisteriosAME\backoffice\" />
+    <Folder Include="App_Plugins\MinisteriosAME\backoffice\miembrosTreeAlias\" />
+    <Folder Include="App_Plugins\PanelAdministrativo\backoffice\PanelAdministrativo\" />
+    <Folder Include="App_Plugins\PanelAdministrativo\lang\" />
+    <Folder Include="App_Plugins\PanelAdministrativo\backoffice\Miembros\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App_Plugins\MinisteriosAME\dashboard.html" />
+    <None Include="App_Plugins\MinisteriosAME\package.manifest" />
+    <None Include="App_Plugins\MinisteriosAME\backoffice\miembrosTreeAlias\miembrosList.html" />
+    <None Include="App_Plugins\MinisteriosAME\backoffice\miembrosTreeAlias\coordinadoresList.html" />
+    <None Include="App_Plugins\MinisteriosAME\backoffice\miembrosTreeAlias\miembrosList.controller.js" />
+    <None Include="App_Plugins\MinisteriosAME\backoffice\miembrosTreeAlias\testView.html" />
+    <None Include="App_Plugins\MinisteriosAME\backoffice\miembrosTreeAlias\testView.controller.js" />
+    <None Include="App_Plugins\PanelAdministrativo\backoffice\Funerarias\funerariasAddProfile.controller.js" />
+    <None Include="App_Plugins\PanelAdministrativo\backoffice\Funerarias\funerariasDetail.controller.js" />
+    <None Include="App_Plugins\PanelAdministrativo\backoffice\Iglesias\iglesiasAddProfile.controller.js" />
+    <None Include="App_Plugins\PanelAdministrativo\backoffice\Iglesias\iglesiasDetail.controller.js" />
+    <None Include="App_Plugins\PanelAdministrativo\backoffice\Reportes\InvoiceReportDetail.controller.js" />
+    <None Include="App_Plugins\PanelAdministrativo\backoffice\Reportes\InvoiceReportAddProfile.controller.js" />
+    <None Include="App_Plugins\PanelAdministrativo\package.manifest" />
+    <None Include="App_Plugins\PanelAdministrativo\backoffice\PanelAdministrativo\panelAdministrativo.html" />
+    <None Include="App_Plugins\PanelAdministrativo\backoffice\PanelAdministrativo\panelAdministrativo.controller.js" />
+    <None Include="App_Plugins\PanelAdministrativo\lang\en-us.xml" />
+    <None Include="App_Plugins\PanelAdministrativo\backoffice\Miembros\miembros.controller.js" />
+    <None Include="App_Plugins\PanelAdministrativo\backoffice\Miembros\miembros.html" />
+    <None Include="App_Plugins\PanelAdministrativo\backoffice\Funerarias\funerarias.html" />
+    <None Include="App_Plugins\PanelAdministrativo\backoffice\Funerarias\funerarias.controller.js" />
+    <None Include="App_Plugins\PanelAdministrativo\backoffice\Iglesias\iglesias.html" />
+    <None Include="App_Plugins\PanelAdministrativo\backoffice\Iglesias\iglesias.controller.js" />
+    <None Include="App_Plugins\PanelAdministrativo\backoffice\Reportes\reportes.controller.js" />
+    <None Include="App_Plugins\PanelAdministrativo\backoffice\Reportes\reportes.html" />
+    <None Include="App_Plugins\PanelAdministrativo\backoffice\Miembros\Coordinadores.html" />
+    <None Include="App_Plugins\PanelAdministrativo\backoffice\Miembros\miembroProfile.html" />
+    <None Include="App_Plugins\PanelAdministrativo\backoffice\Miembros\miembroProfile.controller.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Plugins\MinisteriosAME\AdministracionTreeController.cs" />
+    <Compile Include="App_Plugins\MinisteriosAME\IglesiaTreeController.cs" />
+    <Compile Include="App_Plugins\MinisteriosAME\ReportesTreeController.cs" />
+    <Compile Include="App_Plugins\MinisteriosAME\MiembrosController.cs" />
+    <Compile Include="App_Plugins\PanelAdministrativo\PanelAdministrativoSection.cs" />
+    <Compile Include="App_Plugins\PanelAdministrativo\SectionComposer.cs" />
+    <Compile Include="App_Plugins\PanelAdministrativo\MiembrosController.cs" />
+    <Compile Include="App_Plugins\PanelAdministrativo\MiembrosTreeController.cs" />
+    <Compile Include="App_Plugins\PanelAdministrativo\IglesiasTreeController.cs" />
+    <Compile Include="App_Plugins\PanelAdministrativo\FunerariasTreeController.cs" />
+    <Compile Include="App_Plugins\PanelAdministrativo\ReportesTreeController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Plugins\PanelAdministrativo\backoffice\Funerarias\funerariasAddProfile.html" />
+    <Content Include="App_Plugins\PanelAdministrativo\backoffice\Funerarias\funerariasDetail.html" />
+    <Content Include="App_Plugins\PanelAdministrativo\backoffice\Iglesias\iglesiasAddProfile.html" />
+    <Content Include="App_Plugins\PanelAdministrativo\backoffice\Iglesias\iglesiasDetail.html" />
+    <Content Include="App_Plugins\PanelAdministrativo\backoffice\Reportes\InvoiceReportDetail.html" />
+    <Content Include="App_Plugins\PanelAdministrativo\backoffice\Reportes\InvoiceReportAddProfile.html" />
+  </ItemGroup>
+  <PropertyGroup>
+    <!-- Razor files are needed for the backoffice to work correctly -->
+    <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- Remove RazorCompileOnBuild and RazorCompileOnPublish when not using ModelsMode InMemoryAuto -->
+    <RazorCompileOnBuild>false</RazorCompileOnBuild>
+    <RazorCompileOnPublish>false</RazorCompileOnPublish>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Umbraco.Web.UI' " />
+</Project>

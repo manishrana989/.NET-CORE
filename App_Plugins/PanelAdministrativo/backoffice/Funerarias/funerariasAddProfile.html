@@ -1,0 +1,79 @@
+﻿<div ng-controller="funeralHomeAddProfileController as vm">
+    <umb-editor-view>
+        <umb-editor-header name="'Funeral Home Profile'"
+                           hide-alias="true"
+                           hide-icon="true"
+                           hide-description="true">
+        </umb-editor-header>
+
+        <umb-editor-container>
+            <umb-load-indicator ng-if="vm.loading"></umb-load-indicator>
+            <div class="flex" style="gap:20px;">
+                <umb-box style="flex-grow: 1;" ng-if="!vm.loading">
+                    <umb-box-content>
+                        <umb-control-group label="Name">
+                            <input type="text" id="funeralHomeName" ng-model="vm.funeralHome.name" class="form-control" placeholder="Enter funeral home name" required />
+                        </umb-control-group>
+                        <umb-control-group label="Contract">
+                            <input type="text" id="funeralHomeContract" ng-model="vm.funeralHome.contract" class="form-control" placeholder="Enter contract details" required />
+                        </umb-control-group>
+                        <umb-control-group label="Phone Number">
+                            <input type="text" id="funeralHomePhone" ng-model="vm.funeralHome.phoneNumber" class="form-control" placeholder="Enter phone number" required />
+                        </umb-control-group>
+                    </umb-box-content>
+                </umb-box>
+
+                <umb-box style="flex-grow: 1;" ng-if="!vm.loading">
+                    <umb-box-content>
+                        <umb-control-group label="Email Address">
+                            <input type="email" id="funeralHomeEmail" ng-model="vm.funeralHome.emailAddress" class="form-control" placeholder="Enter email" required />
+                        </umb-control-group>
+                        <umb-control-group label="Price for Service">
+                            <input type="number" id="funeralHomePrice" ng-model="vm.funeralHome.priceForService" class="form-control" placeholder="Enter service price" step="0.01" required />
+                        </umb-control-group>
+                        <umb-control-group label="Director Name">
+                            <input type="text" id="directorName" ng-model="vm.funeralHome.directorName" class="form-control" placeholder="Enter director name" required />
+                        </umb-control-group>
+                    </umb-box-content>
+                </umb-box>
+
+                <umb-box style="flex-grow: 1;" ng-if="!vm.loading">
+                    <umb-box-content>
+                        <umb-control-group label="Owner Name">
+                            <input type="text" id="funeralHomeOwner" ng-model="vm.funeralHome.funeralHomeOwnerName" class="form-control" placeholder="Enter owner name" required />
+                        </umb-control-group>
+                        <umb-control-group label="Member">
+                            <select id="memberId" ng-model="vm.funeralHome.memberId" class="form-control" ng-options="member.id as member.name for member in vm.members">
+                                <option value="">Select a member</option>
+                            </select>
+                        </umb-control-group>
+                    </umb-box-content>
+                </umb-box>
+            </div>
+
+            <umb-editor-footer>
+                <umb-editor-footer-content-right>
+         
+                    <umb-button type="button"
+                                button-style="success"
+                                label="Save"
+                                ng-if="!vm.isEdit"
+                                action="vm.save()"
+                                disabled="vm.loading || !vm.funeralHome.name || !vm.funeralHome.contract || !vm.funeralHome.phoneNumber || !vm.funeralHome.emailAddress || !vm.funeralHome.priceForService || !vm.funeralHome.directorName || !vm.funeralHome.funeralHomeOwnerName || !vm.funeralHome.memberId">
+                        Save
+                    </umb-button>
+
+                    <!-- Show Update button if editing an existing funeral home -->
+                    <umb-button type="button"
+                                button-style="success"
+                                label="Update"
+                                ng-if="vm.isEdit"
+                                action="vm.save()"
+                                disabled="vm.loading || !vm.funeralHome.name || !vm.funeralHome.contract || !vm.funeralHome.phoneNumber || !vm.funeralHome.emailAddress || !vm.funeralHome.priceForService || !vm.funeralHome.directorName || !vm.funeralHome.funeralHomeOwnerName || !vm.funeralHome.memberId">
+                        Update
+                    </umb-button>
+                </umb-editor-footer-content-right>
+            </umb-editor-footer>
+        </umb-editor-container>
+    </umb-editor-view>
+</div>

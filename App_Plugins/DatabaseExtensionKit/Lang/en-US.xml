@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<language alias="en" intName="English (US)" localName="English (US)" lcid="" culture="en-US">
+  <area alias="sections">
+    <key alias="dbExtensionKit">DB Extension Kit</key>
+    <key alias="dbExtensionKitAdmin">DB Extension Kit Admin</key>
+  </area>
+  <area alias="treeHeaders">
+    <key alias="objects">Entities</key>
+    <key alias="admin">Entities</key>
+  </area>
+  <area alias="general">
+    <key alias="itemSaved">Item is saved</key>
+    <key alias="sortOrder">Sort Order</key>
+    <key alias="selectObject">Select entity type</key>
+    <key alias="deleteall">Delete all</key>
+    <key alias="showFilters">Show filters</key>
+    <key alias="hideFilters">Hide filters</key>
+    <key alias="export">Export</key>
+    <key alias="import">Import</key>
+    <key alias="selectCsv">Select csv file</key>
+    <key alias="license">License</key>
+    <key alias="displayInList">Displayed in list</key>
+
+  </area>
+  <area alias="defaultdialogs">
+    <key alias="confirmrestore">Are you sure you want to restore entity</key>
+    <key alias="confirmdeleteall">Are you sure you want to delete all</key>
+  </area>
+</language>

@@ -1,0 +1,16 @@
+﻿<div ng-controller="testView.controller as vm">
+    
+    <umb-table
+        ng-if="vm.items"
+        items="vm.items"
+        item-properties="vm.options.includeProperties"
+        allow-select-all="vm.allowSelectAll"
+        on-select="vm.selectItem"
+        on-click="vm.clickItem"
+        on-select-all="vm.selectAll"
+        on-selected-all="vm.isSelectedAll"
+        on-sorting-direction="vm.isSortDirection"
+        on-sort="vm.sort">
+    </umb-table>
+ 
+</div>

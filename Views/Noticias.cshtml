@@ -1,0 +1,81 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Noticias>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Master.cshtml";
+}
+
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+      <div class="page-header d-flex align-items-center" style="background-image: url('');">
+        <div class="container position-relative">
+          <div class="row d-flex justify-content-center">
+            <div class="col-lg-6 text-center">
+              <h2>Noticias</h2>
+              <p>
+                Aquí podrá mantenerse informado de todos los eventos del Ministerio AME
+                incluyendo sus periodos de Matrícula. También encontrará temas espirituales y
+                emocionales que serán de ayuda para usted o algún conocido.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav>
+        <div class="container">
+          <ol>
+            <li><a href="/">Inicio</a></li>
+            <li>Noticias</li>
+          </ol>
+        </div>
+      </nav>
+    </div><!-- End Breadcrumbs --> 
+    
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row gy-4 posts-list"> 
+            
+            @{ 
+            	var selection = Umbraco.Content(Guid.Parse("5b054cc4-a19c-4858-b499-e4ddefa0cfd7"))
+                .ChildrenOfType("noticia")
+                .Where(x => x.IsVisible())
+                .OrderByDescending(x => x.CreateDate); 
+                 
+            }
+            
+        	 @foreach (var article in selection)
+                {
+                    var image = article.Value<IPublishedContent>("noticiaImagen");
+
+
+                    <div class="col-xl-4 col-md-6">
+                        <article>
+                            @if (image is not null) {
+                            <a href="@article.Url()"><div class="post-img">
+                                <img src="@image.Url()" alt="" class="img-fluid">
+                            </div></a>
+                            }
+
+                            <p class="post-category"></p>
+
+                            <h2 class="title">
+                                <a href="@article.Url()">@article.Value("noticiaTitulo")</a>
+                            </h2> 
+
+                        </article>
+                    </div><!-- End post list item -->
+                } 
+        	
+         
+        	
+        </div><!-- End blog posts list -->
+       
+
+      </div>
+  </section>
+<!-- End Blog Section -->

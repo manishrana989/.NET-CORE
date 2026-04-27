@@ -1,0 +1,85 @@
+﻿<div ng-controller="CustomTreePickerController as vm">
+    <form name="propertySettingsForm" novalidate val-form-manager>
+
+        <umb-editor-view>
+
+            <umb-editor-header name="vm.title"
+                               name-locked="true"
+                               hide-alias="true"
+                               hide-icon="true"
+                               hide-description="true">
+            </umb-editor-header>
+
+            <umb-editor-container>
+                <umb-box>
+                    <umb-box-content>
+                        <div class="umb-control-group">
+                            <div class="form-search">
+                                <div class="umb-control-group -no-border">
+                                    <div class="umb-search-filter w-100">
+                                        <umb-icon icon="icon-search" ng-if="!vm.showBackButton || vm.model.length === 0"></umb-icon>
+                                        <input type="text"
+                                               ng-model="filter"
+                                               class="umb-search-filter__input"
+                                               no-dirty-check ng-change="vm.search(filter)" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <ul class="umb-tree">
+                                <li>
+                                    <ul>
+                                        <li ng-repeat="node in vm.nodes" class="umb-tree-item" data-element="tree-item-{{::node.dataElement}}">
+                                            <div class="umb-tree-item__inner" tabindex="-1">
+                                                <umb-icon icon="{{node.selected ? 'icon-check' : 'icon-document'}}" class="icon umb-tree-icon sprTree" title="{{::node.title}}" ng-click="vm.selectNode(node)" tabindex="-1"></umb-icon>
+                                                <span class="umb-tree-item__annotation"></span>
+                                                <span class="umb-tree-item__label" ng-click="vm.selectNode(node)">{{node.name}}</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+
+                    </umb-box-content>
+                </umb-box>
+                <div class="flex justify-center">
+                    <umb-pagination page-number="pagination.pageNumber"
+                                    total-pages="pagination.totalPages"
+                                    on-next="vm.nextPage"
+                                    on-prev="vm.prevPage"
+                                    on-change="vm.changePage"
+                                    on-go-to-page="vm.goToPage">
+                    </umb-pagination>
+                </div>
+            </umb-editor-container>
+
+            <umb-editor-footer>
+
+                <umb-editor-footer-content-right>
+
+                    <umb-button type="button"
+                                button-style="link"
+                                label-key="general_close"
+                                shortcut="esc"
+                                action="vm.close()">
+                    </umb-button>
+
+                </umb-editor-footer-content-right>
+
+            </umb-editor-footer>
+
+        </umb-editor-view>
+
+    </form>
+</div>
+
+<style>
+    span[ng-click] {
+        cursor: pointer;
+    }
+</style>

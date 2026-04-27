@@ -1,0 +1,11 @@
+﻿<div class="umb-dialog umb-pane" ng-controller="deleteController">
+    <div class="umb-dialog-body">
+        <p class="abstract">
+            <localize key="defaultdialogs_confirmdelete">Add property</localize>: <strong>{{currentNode.name}}</strong> ?
+        </p>
+        <div class="btn-toolbar umb-btn-toolbar">
+            <umb-button type="button" action="onCancel()" button-style="link" label-key="cancel"> </umb-button>
+            <umb-button type="button" action="onDelete()" state="$buttonState" button-style="danger" label-key="yes" disabled="$buttonState === 'busy'"> </umb-button>
+</div>
+</div>
+</div>

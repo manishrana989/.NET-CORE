@@ -1,0 +1,91 @@
+﻿<div ng-controller="iglesiasAddProfileController as vm">
+    <umb-editor-view>
+        <umb-editor-header name="'Church Profile'"
+                           hide-alias="true"
+                           hide-icon="true"
+                           hide-description="true">
+        </umb-editor-header>
+
+        <umb-editor-container>
+            <umb-load-indicator ng-if="vm.loading"></umb-load-indicator>
+            <div class="flex" style="gap:20px;">
+                <!-- Church Details -->
+                <umb-box style="flex-grow: 1;" ng-if="!vm.loading">
+                    <umb-box-content>
+                        <umb-control-group label="Name">
+                            <input type="text" id="churchName" ng-model="vm.church.name" class="form-control" placeholder="Enter church name" required />
+                        </umb-control-group>
+                        <umb-control-group label="Email">
+                            <input type="email" id="churchEmail" ng-model="vm.church.emailAddress" class="form-control" placeholder="Enter email" required />
+                        </umb-control-group>
+                        <umb-control-group label="Phone Number">
+                            <input type="text" id="churchPhone" ng-model="vm.church.phoneNumber" class="form-control" placeholder="Enter phone number" required />
+                        </umb-control-group>
+                    </umb-box-content>
+                </umb-box>
+
+                <!-- Address Details -->
+                <umb-box style="flex-grow: 1;" ng-if="!vm.loading">
+                    <umb-box-content>
+                        <umb-control-group label="Street Address">
+                            <input type="text" id="churchAddress" ng-model="vm.church.address" class="form-control" placeholder="Enter street address" required />
+                        </umb-control-group>
+                        <umb-control-group label="State" ng-if="!vm.isEdit">
+                            <input type="text" id="churchState" ng-model="vm.church.state" class="form-control" placeholder="Enter state" required />
+                        </umb-control-group>
+                        <umb-control-group label="City" ng-if="!vm.isEdit">
+                            <input type="text" id="churchcity" ng-model="vm.church.city" class="form-control" placeholder="Enter city" required />
+                        </umb-control-group>
+                    </umb-box-content>
+                </umb-box>
+
+                <!-- Country and Zip Code -->
+                <umb-box style="flex-grow: 1;" ng-if="!vm.loading">
+                    <umb-box-content>
+                        <umb-control-group label="Country" ng-if="!vm.isEdit">
+                            <input type="text" id="churchcountry" ng-model="vm.church.country" class="form-control" placeholder="Enter country" required />
+                        </umb-control-group>
+                        <umb-control-group label="Zipcode" ng-if="!vm.isEdit">
+                            <input type="text" id="churchzipcode" ng-model="vm.church.zipcode" class="form-control" placeholder="Enter zipcode" required />
+                        </umb-control-group>
+                        <umb-control-group label="Members">
+                            <div ng-repeat="member in vm.members">
+                                <label>
+                                    <input type="checkbox"
+                                           ng-model="vm.selectedMemberIds[member.id]"
+                                           ng-true-value="true"
+                                           ng-false-value="false"
+                                           ng-change="vm.checkForChanges()" />
+                                    {{ member.name }}
+                                </label>
+                            </div>
+                        </umb-control-group>
+                    </umb-box-content>
+                </umb-box>
+            </div>
+
+            <umb-editor-footer>
+                <umb-editor-footer-content-right>
+
+                    <umb-button type="button"
+                                button-style="success"
+                                label="Save"
+                                ng-if="!vm.isEdit"
+                                action="vm.save()">
+                        Save
+                    </umb-button>
+
+    
+                    <umb-button type="button"
+                                button-style="success"
+                                label="Update"
+                                ng-if="vm.isEdit"
+                                action="vm.save()">
+                        Update
+                    </umb-button>
+                </umb-editor-footer-content-right>
+            </umb-editor-footer>
+
+        </umb-editor-container>
+    </umb-editor-view>
+</div>

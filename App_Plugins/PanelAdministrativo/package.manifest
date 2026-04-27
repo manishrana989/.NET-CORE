@@ -1,0 +1,33 @@
+﻿{
+  "javascript": [
+    "~/App_Plugins/PanelAdministrativo/backoffice/panelAdministrativo/panelAdministrativo.controller.js",
+    "~/App_Plugins/PanelAdministrativo/backoffice/Miembros/miembros.controller.js",
+    "~/App_Plugins/PanelAdministrativo/backoffice/Funerarias/funerarias.controller.js",
+    "~/App_Plugins/PanelAdministrativo/backoffice/Iglesias/iglesias.controller.js",
+    "~/App_Plugins/PanelAdministrativo/backoffice/Reportes/reportes.controller.js",
+    "~/App_Plugins/PanelAdministrativo/backoffice/Miembros/miembroProfile.controller.js",
+    "~/App_Plugins/PanelAdministrativo/backoffice/Iglesias/iglesiasDetail.controller.js",
+    "~/App_Plugins/PanelAdministrativo/backoffice/Iglesias/iglesiasAddProfile.controller.js",
+    "~/App_Plugins/PanelAdministrativo/backoffice/Funerarias/funerariasAddProfile.controller.js",
+    "~/App_Plugins/PanelAdministrativo/backoffice/Funerarias/funerariasDetail.controller.js",
+    "~/App_Plugins/PanelAdministrativo/backoffice/Reportes/InvoiceReportAddProfile.controller.js",
+    "~/App_Plugins/PanelAdministrativo/backoffice/Reportes/InvoiceReportDetail.controller.js"
+
+  ],
+  "dashboards": [
+    {
+      "alias": "panelAdministrativoDashboard",
+      "name": "Panel Administrativo",
+      "sections": [ "panelAdministrativo" ],
+      "view": "~/App_Plugins/PanelAdministrativo/backoffice/panelAdministrativo/panelAdministrativo.html",
+      "weight": -10
+    }
+
+  ],
+  "sections": [
+    {
+      "alias": "PanelAdministrativo",
+      "name": "Panel Administrativo"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+﻿<div ng-controller="RecycleBinController">
+    <ng-form name="recycleForm" val-form-manager>
+        <div class="umb-editor-header">
+            <div class="flex items-center" style="height: 100%;">
+                <div class="flex items-center" style="flex: 1;">
+                    <h1 class="umb-panel-header-name"> <localize key="general_recycleBin">Recycle Bin</localize></h1>
+                </div>
+            </div>
+        </div>
+    </ng-form>
+    <umb-editor-view>
+        <umb-editor-container>
+            <div class="umb-group-panel ">
+                <div class="umb-group-panel__content">
+                    <div class="form-horizontal">
+                        <div class="umb-property">
+                            <div class="umb-el-wrap">
+                                <div class="control-header"><label class="control-label"><localize key="general_selectObject">Select entity type</localize>:</label></div>
+                                <div class="controls">
+                                    <select class="umb-property-editor umb-dropdown" ng-model="selectedObject" ng-change="loadTable()" name="object">
+                                        <option ng-repeat="option in types" value="{{option.alias}}">{{option.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="table != ''">
+                <umb-editor-sub-header>
+                    <umb-editor-sub-header-content-left>
+                        <umb-button action="deleteAll()"
+                                    type="button"
+                                    button-style="outline"
+                                    label-key="deleteall">
+                        </umb-button>
+                    </umb-editor-sub-header-content-left>
+                    <umb-editor-sub-header-content-right>
+                        <form class="form-search pull-right ng-pristine ng-valid" novalidate="">
+                            <div class="inner-addon left-addon">
+                                <i class="icon icon-search"></i>
+                                <input type="text" class="form-control ng-pristine ng-valid" placeholder="{{searchPlaceholder}}" ng-model="filter" prevent-enter-submit="" no-dirty-check="" ng-change="searchDeleted(filter)">
+                            </div>
+                        </form>
+                    </umb-editor-sub-header-content-right>
+                </umb-editor-sub-header>
+            <umb-load-indicator ng-show="!viewLoaded"></umb-load-indicator>
+            <div class="umb-table" ng-show="viewLoaded">
+                <div class="umb-table-head">
+                    <div class="umb-table-row">
+                        <!-- We leave this first on empty in the header & show icons in the body -->
+                        <div class="umb-table-cell" style="flex: 0 0 45px">Id</div>
+                        <div class="umb-table-cell" ng-repeat="item in model.properties | filter:{ displayInList: 'true'} ">{{item.label}}</div>
+                        <div class="umb-table-cell" style="text-align:right;display:block">  <localize key="general_actions">Actions</localize></div>
+                    </div>
+                </div>
+                <div class="umb-table-body">
+                    <div class="umb-table-row -selectable" ng-repeat="item in items">
+                        <div class="umb-table-cell" style="flex: 0 0 45px">{{item.id}}</div>
+                        <div class="umb-table-cell" ng-repeat="(propIndex, prop) in item.properties | filter:{ displayInList: 'true'} track by propIndex">
+                            <span>
+                                {{prop.value}}
+                            </span>
+                        </div>
+                        <div class="umb-table-cell" style="text-align:right;display:block">
+                            <i ng-click="delete(item)" title="Delete" class="umb-table-body__icon icon-trash" style="margin-left: 10px; margin-right: 0px;"></i>
+                            <i ng-click="restore(item)" title="Restore" class="umb-table-body__icon icon-sync" style="margin-left: 10px; margin-right: 0px; "></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center">
+                <umb-pagination page-number="pagination.pageNumber"
+                                total-pages="pagination.totalPages"
+                                on-next="nextPage"
+                                on-prev="prevPage"
+                                on-change="changePage"
+                                on-go-to-page="goToPage">
+                </umb-pagination>
+            </div>
+                </div>
+        </umb-editor-container>
+    </umb-editor-view>
+</div>

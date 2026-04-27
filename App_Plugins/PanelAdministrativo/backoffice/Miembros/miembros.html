@@ -1,0 +1,66 @@
+﻿<div ng-controller="MiembrosController as vm">
+    <umb-editor-view>
+        <!-- Editor Container -->
+        <umb-editor-container>
+            <umb-editor-sub-header class="flex">
+                <umb-editor-sub-header-section style="gap: 10px; width:100%">
+                     
+                    <umb-box style="width:33%;">
+                        <umb-box-header>
+                            <h3>Categorias</h3>
+                        </umb-box-header>
+                        <umb-box-content>
+                            <p>Sostenedores: {{vm.content.totalSustaining}}. Dependientes: {{vm.content.totalDependents}}. Menores: {{vm.content.totalMinors}}.</p>
+                        </umb-box-content>
+                    </umb-box>
+                    <umb-box style="width:33%;">
+                        <umb-box-header>
+                            <h3>Origen</h3>
+                        </umb-box-header>
+                        <umb-box-content>
+                            <p>Bautisados: {{vm.content.totalBautizado}}. Amigos: {{vm.content.totalAmigo}}. Pastores: 0. Coordinadores: {{vm.content.totalCoordinators}}</p>
+                        </umb-box-content>
+                    </umb-box>
+                    <umb-box style="width:33%;">
+                        <umb-box-header>
+                            <h3>Estatus</h3>
+                        </umb-box-header>
+                        <umb-box-content>
+                            <p>Activo: 4. Inactivo: 2. Fallecido: 4.</p>
+                        </umb-box-content>
+                    </umb-box>
+
+
+                </umb-editor-sub-header-section>
+            </umb-editor-sub-header>
+
+
+            <umb-editor-sub-header-content-right>
+                <umb-search-filter model="vm.searchQuery"
+                                   on-change="vm.filterMembers()"
+                                   placeholder="Search members...">
+                </umb-search-filter>
+            </umb-editor-sub-header-content-right> 
+        
+            <uui-table aria-label="Members table">
+                <uui-table-column style="width: 50%"></uui-table-column>
+                <uui-table-column style="width: 50%"></uui-table-column>
+
+                <uui-table-head>
+                    <uui-table-head-cell>Name</uui-table-head-cell>
+                    <uui-table-head-cell>Email</uui-table-head-cell>
+                </uui-table-head>
+
+                <uui-table-row ng-repeat="member in vm.filteredMembers">
+                    <uui-table-cell>
+                        <a href="#" ng-click="vm.clickItem(member); $event.preventDefault();">{{member.name}}</a>
+                    </uui-table-cell>
+                    <uui-table-cell>{{member.email}}</uui-table-cell>
+                </uui-table-row>
+            </uui-table>
+        
+
+        </umb-editor-container>
+    </umb-editor-view>
+
+</div>

@@ -1,0 +1,54 @@
+﻿{
+  "sections": [
+    {
+      "alias": "dbExtensionKit",
+      "name": "DB Extension Kit"
+    },
+    {
+      "alias": "dbExtensionKitAdmin",
+      "name": " DB Extension Kit Admin"
+    }
+  ],
+  "propertyEditors": [
+    {
+      /*this must be a unique alias*/
+      "alias": "ForeignKeyEditor",
+      /*the name*/
+      "name": "Foreign key",
+      /*the icon*/
+      "icon": "icon-list",
+      /*grouping for "Select editor" dialog*/
+      "group": "Pickers",
+      /*the HTML file we will load for the editor*/
+      "editor": {
+        "view": "~/App_Plugins/DatabaseExtensionKit/backoffice/foreignKey/foreignKey.html",
+        "valueType": "INT"
+      },
+      "prevalues": {
+        "fields": [
+          {
+            "label": "Foreign key",
+            "description": "Select entity",
+            "key": "foreignKeyObject",
+            "view": "~/App_Plugins/DatabaseExtensionKit/backoffice/foreignKey/objectList.html"
+          }
+        ]
+      }
+    }
+  ],
+  "javascript": [
+    "~/App_Plugins/DatabaseExtensionKit/backoffice/objects/edit.controller.js",
+    "~/App_Plugins/DatabaseExtensionKit/backoffice/objects/import.controller.js",
+    "~/App_Plugins/DatabaseExtensionKit/backoffice/objects/recyclebin.controller.js",
+    "~/App_Plugins/DatabaseExtensionKit/backoffice/objects/objectList.controller.js",
+    "~/App_Plugins/DatabaseExtensionKit/backoffice/admin/edit.controller.js",
+    "~/App_Plugins/DatabaseExtensionKit/backoffice/admin/delete.controller.js",
+    "~/App_Plugins/DatabaseExtensionKit/backoffice/admin/rights.controller.js",
+    "~/App_Plugins/DatabaseExtensionKit/backoffice/customPropertySettings/customPropertySettings.controller.js",
+    "~/App_Plugins/DatabaseExtensionKit/backoffice/customPropertySettings/customDataTypePicker.controller.js",
+    "~/App_Plugins/DatabaseExtensionKit/backoffice/foreignKey/foreignKey.controller.js",
+    "~/App_Plugins/DatabaseExtensionKit/backoffice/foreignKey/objectList.controller.js",
+    "~/App_Plugins/DatabaseExtensionKit/backoffice/foreignKey/customTreePicker.controller.js",
+    "~/App_Plugins/DatabaseExtensionKit/backoffice/dbExtensionKitSettings/license.controller.js"
+  ]
+}

@@ -1,0 +1,302 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Perfil>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels; 
+@using Umbraco.Cms.Core.Security;
+@using Umbraco.Cms.Core.Services; 
+@inject IMemberManager MemberManager;
+@inject IMemberService MemberService; 
+ 
+ 
+@{
+	Layout = "Master.cshtml";
+	var memberName = "";
+	var memberLastName = "";
+	var memberEmail = "";
+	var memberAddress = "";
+	var memberCountry = "";
+	
+	var currUser = await MemberManager.GetCurrentMemberAsync();
+    if (currUser != null)
+    { 
+        if (int.TryParse(currUser.Id.ToString(), out int memberId))
+        {
+            var member = MemberService.GetById(memberId); 
+            memberName = member.GetValue<string>("miembroSostenedorNombre");
+            memberLastName = member.GetValue<string>("miembroSostenedorApellido");
+            memberEmail = member.GetValue<string>("miembroSostenedorCorreo");
+            memberAddress = member.GetValue<string>("miembroSostenedorDireccion");
+            memberCountry = member.GetValue<string>("miembroSostenedorPais");
+            
+        }  
+    }
+    else
+    {
+        <p>User is not logged in</p>
+    }
+    
+    
+} 
+
+<div class="container-xl px-4 mt-4">
+    <!-- Account page navigation-->
+
+    
+    <hr class="mt-0 mb-4">
+    <div class="row">
+        <div class="col-xl-4">
+            <!-- Profile picture card-->
+            <div class="card mb-4 mb-xl-0">
+                <div class="card-header"> 
+                    Foto de perfil
+                </div>
+                <div class="card-body text-center">
+                    <!-- Profile picture image-->
+                    <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                    <!-- Profile picture help block-->
+                    <div class="small font-italic text-muted mb-4">JPG o PNG no mayor a 2 MB Index.cshtml</div>
+                    <!-- Profile picture upload button-->
+                    <button class="btn btn-primary" type="button">Subir Nueva Imagen</button>
+
+                    <br />
+                   <p>Photo location</p>
+
+                </div>
+            </div>
+        </div>
+    
+    
+        <div class="col-xl-8">
+            <!-- Account details card-->
+            <div class="card mb-4">
+                <div class="card-header">Detalles de Sostenedor</div>
+                <div class="card-body"> 
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for=" ">Nombre</label>
+                                <input class="form-control" id="inputFirstName" type="text" placeholder=" " value="@memberName" readonly>
+                            </div>
+                            <!-- Form Group (last name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for=" ">Apellido</label>
+                                <input class="form-control" id="inputLastName" type="text" placeholder=" " value="@memberLastName" readonly>
+                            </div>
+                        </div>
+                        <!-- Form Row        -->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (   )-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for=" ">Correo Electrónico</label>
+                                <input class="form-control" name="email" id="email" type="email" placeholder="" value="@memberEmail" readonly>
+                            </div>
+                            <!-- Form Group ( )-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="address">Dirección</label>
+                                <input class="form-control" name="address" id="address" type="text" placeholder="" value="@memberAddress" readonly/>
+                            </div>
+                        </div>
+
+                        <!-- Form Row-->
+                            <div class="row gx-3 mb-3">
+                                <!-- Form Group (phone number)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="phone">Número de Teléfono</label>
+                                    <input class="form-control" name="phone" id="phone" type="tel" placeholder="" value="Phone" />
+                                </div>
+                                <!-- Form Group (birthday)-->
+                                <br>
+                                if (!string.IsNullOrEmpty(DOB))
+                                {
+                                    Model.DOB = Model.DOB.TrimEnd("12:00:00AM");
+                                }
+                                <br>
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for=" ">Fecha de Nacimiento</label>
+                                    <input class="form-control" id="inputBirthday" type="text" name="birthday" placeholder="" value="DOB" readonly>
+                                </div>
+                            </div>
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+
+                            <div class="col-md-6">
+                                <label class="small mb-1" for=" ">Miembro ID</label>
+                                <input class="form-control" id=" " type="text" placeholder="" value="MemberID" readonly>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="small mb-1" for=" ">Tipo de Miembro</label>
+                                <input class="form-control" id=" " type="text" name=" " placeholder=" " value="MemberType" readonly>
+                            </div>
+
+                        </div>
+                        <div class="row gx-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="small mb-1" for=" ">Clasificación</label>
+                                <input class="form-control" id=" " type="text" name=" " placeholder=" " value="Classification" readonly>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small mb-1" for=" ">Tipo de Contribución</label>
+                                <input class="form-control" id=" " type="text" name=" " placeholder="" value="MemberType" readonly>
+                            </div>
+                        </div>
+                        <div class="row gx-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="small mb-1" for=" ">Iglesia</label>
+                                @*<input class="form-control" id=" " type="text" name=" " placeholder="" value="@churchName" readonly>*@
+                            </div>
+                            
+                            <br>
+                            if (!string.IsNullOrEmpty(Model.Status))
+                            {
+                                Model.Status = Model.Status.TrimStart('[').TrimEnd(']').Trim('"');
+                            }
+                            <br>
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="status">Estado</label>
+                                <input class="form-control" id="status" type="text" name="status" placeholder="" value="Status" readonly>
+                            </div>
+                        </div>
+                        <div class="row gx-3 mb-3">
+                            <div class="col-md-12">
+                                <label class="small mb-1" for="authorizedPersons">Persona autorizada</label>
+                                <textarea class="form-control" name="authorizedPersons" id="authorizedPersons" value="Model.AuthorizedPersons">Model.AuthorizedPersons</textarea>
+                            </div>
+                        </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Dependent Member Section -->
+
+    <div class="container-xl px-4 mt-4">
+
+        <hr class="mt-0 mb-4">
+
+
+        <!-- Billing history card-->
+        <div class="card mb-4">
+            <div class="card-header">Dependes</div>
+            <div class="card-body p-0">
+                <!-- Billing history table-->
+                <div class="table-responsive table-billing-history">
+                    <table class="table mb-0">
+                        <thead>
+                            <tr>
+                                <th class="border-gray-200" scope="col">Nombre</th>
+                                <th class="border-gray-200" scope="col">Edad</th>
+                                <th class="border-gray-200" scope="col">Fecha de Nacimiento</th>
+                                <th class="border-gray-200" scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><span class="badge bg-light text-dark"></span></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- End of Dependent Member Section -->
+
+
+
+    <div class="container-xl px-4 mt-4">
+        
+       @*
+        <hr class="mt-0 mb-4">
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <!-- Billing card 1-->
+                <div class="card h-100 border-start-lg border-start-primary">
+                    <div class="card-body">
+                        <div class="small text-muted">Aportacion</div>
+                        <div class="h3">$20.00</div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <!-- Billing card 2-->
+                <div class="card h-100 border-start-lg border-start-secondary">
+                    <div class="card-body">
+                        <div class="small text-muted">
+                            Próximo pago
+                        </div>
+                        <div class="h3">25 de Septiembre</div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <!-- Billing card 3-->
+                <div class="card h-100 border-start-lg border-start-success">
+                    <div class="card-body">
+                        <div class="small text-muted">Miembro</div>
+                        <div class="h3 d-flex align-items-center">Sostenedor</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        *@
+    
+    
+<!-- Billing history card-->
+        <div class="card mb-4">
+            <div class="card-header">
+                Aportaciones
+            </div>
+            <div class="card-body p-0">
+                <!-- Billing history table-->
+                <div class="table-responsive table-billing-history">
+                    <table class="table mb-0">
+                        <thead>
+                            <tr>
+                                <th class="border-gray-200" scope="col">Reporte de Aportaciones</th>
+                                <th class="border-gray-200" scope="col">
+                                    Fecha
+                                </th>
+                                <th class="border-gray-200" scope="col">Cantidad</th>
+                                <th class="border-gray-200" scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#39201</td>
+                                <td>06/15/2021</td>
+                                <td>$29.99</td>
+                                <td><span class="badge bg-danger text-light">Contribución Pendiente</span></td>
+                            </tr>
+                            <tr>
+                                <td>#38594</td>
+                                <td>05/15/2021</td>
+                                <td>$29.99</td>
+                                <td><span class="badge bg-success">Contribución Realizada</span></td>
+                            </tr>
+                            <tr>
+                                <td>#38223</td>
+                                <td>04/15/2021</td>
+                                <td>$29.99</td>
+                                <td><span class="badge bg-warning">Contribución Partial</span></td>
+                            </tr>
+                             
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End of entire profile div-->
+</div> 

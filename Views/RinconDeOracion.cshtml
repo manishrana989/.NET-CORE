@@ -1,0 +1,118 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.RinconDeOracion>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Master.cshtml";
+}
+
+<!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+        <div class="page-header d-flex align-items-center" style="background-image: url('');">
+            <div class="container position-relative">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <h2>Rincón de Oración</h2>
+                        <p>
+                            ¡Envíanos tus peticiones de oración hoy mismo! Estamos aquí para escuchar y elevar tus necesidades a
+                            Dios. Cada mañana, en nuestro devocional, oramos por los pedidos que recibimos. Tu fe nos inspira, y
+                            juntos podemos hacer la diferencia.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <ol>
+                    <li><a href="/">Inicio</a></li>
+                    <li>Rincón de Oración</li>
+                </ol>
+            </div>
+        </nav>
+    </div>
+    <!-- End Breadcrumbs -->
+    
+
+<!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Petición de Oración</h2>
+          <p> </p>
+        </div>
+
+        <div class="row gx-lg-0 gy-4">
+
+          <div class="col-lg-4">
+
+            <div class="info-container d-flex flex-column align-items-center justify-content-center">
+              <div class="info-item d-flex">
+                <i class="bi bi-geo-alt flex-shrink-0"></i>
+                <div>
+                  <h4>Orad Sin Cesar</h4>
+                  <p>
+                     Deléitate asimismo en Jehová, Y él te concederá las peticiones de tu corazón. 
+                     Encomienda a Jehová tu camino, Y confía en él; y él hará.<br><br>
+                     Salmos 37: 4-5.
+                  </p>
+                  <p>
+                     En medio del dolor, el sufrimiento y el desconsuelo, Dios nos ofrece su paz y su fortaleza.  
+                     Este espacio ha sido creado para que nos unamos en suplica y ruedo los unos por los otros.  
+                     El Ministerio AME se fundamenta en la unidad reconociendo su eficacia y siguiendo el mandato divino.  
+                     Te invitamos a dejar tus peticiones, las cuales serán presentadas en oración cada mañana 
+                     durante nuestro devocional.  Que Dios te consuele en tu necesidad. 
+                     Pero Dios es quien trae coraje y curación, muestra su maravilloso poder. 
+                     El poder de su mano revela mi debilidad, ¿qué más puedo hacer excepto orar?<br><br>
+                     Michael Garland. 
+                 </p>
+                </div>
+              </div><!-- End Info Item --> 
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-8">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" required>
+                </div> 
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="email" id="email" placeholder="Correo Electrónico" required>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Telefono" required>
+              </div>
+              <div class="form-group mt-3"> 
+                <select class="form-control" id="public-private" name="public-private" required>
+                  <option value="public">Público</option>
+                  <option value="private">Privado</option> 
+                </select>
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="7" placeholder="Oración" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div style="margin-top: 50px;"> 
+              <p style="font-size: 12px;">*Tenga en cuenta: las solicitudes de oración 
+                            públicas serán visibles en la lista que aparece abajo.
+              </p>
+              </div>
+            </form> 
+          </div>
+      <!-- End Contact Form -->
+
+        </div>
+
+      </div>
+    </section>
+    
+<!-- End Contact Section -->

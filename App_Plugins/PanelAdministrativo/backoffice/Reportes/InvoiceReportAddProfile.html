@@ -1,0 +1,92 @@
+﻿<div ng-controller="InvoiceReportAddProfilecontroller as vm">
+    <umb-editor-view>
+        <umb-editor-header name="'Invoice Report'" hide-alias="true" hide-icon="true" hide-description="true">
+        </umb-editor-header>
+
+        <umb-editor-container>
+            <umb-load-indicator ng-if="vm.loading"></umb-load-indicator>
+            <div class="flex" style="gap: 20px;">
+                <umb-box style="flex-grow: 1;" ng-if="!vm.loading">
+                    <umb-box-content>
+                        <umb-control-group label="Report Name">
+                            <input type="text" id="reportName" ng-model="vm.invoiceReport.reportName" class="form-control" placeholder="Enter report name" required />
+                        </umb-control-group>
+                        <umb-control-group label="Member">
+                            <select id="memberId" ng-model="vm.invoiceReport.memberId" class="form-select" ng-options="member.id as member.name for member in vm.members" required>
+                                <option value="">Select a member</option>
+                            </select>
+                        </umb-control-group>
+                        <umb-control-group label="Supported Member">
+                            <select id="supportedMember" ng-model="vm.invoiceReport.supportedMember" class="form-select" ng-options="member.id as member.name for member in vm.members | filter:{type:'Supported'}" required>
+                                <option value="">Select a supported member</option>
+                            </select>
+                        </umb-control-group>
+                        <umb-control-group label="Supporting Contribution">
+                            <input type="text" id="supportingContribution" ng-model="vm.invoiceReport.supportingContribution" class="form-control" placeholder="Enter supporting contribution" />
+                        </umb-control-group>
+                        <umb-control-group label="Dependent Contribution">
+                            <input type="text" id="dependentContribution" ng-model="vm.invoiceReport.dependentContribution" class="form-control" placeholder="Enter dependent contribution" />
+                        </umb-control-group>
+                    </umb-box-content>
+                </umb-box>
+
+                <umb-box style="flex-grow: 1;" ng-if="!vm.loading">
+                    <umb-box-content>
+                        <umb-control-group label="Dependent Member">
+                            <select id="dependentMember" ng-model="vm.invoiceReport.dependentMember" class="form-select" ng-options="member.id as member.name for member in vm.members | filter:{type:'Dependent'}" required>
+                                <option value="">Select a dependent member</option>
+                            </select>
+                        </umb-control-group>
+                        <umb-control-group label="Previous Balance">
+                            <input type="text" id="previousBalance" ng-model="vm.invoiceReport.previousBalance" class="form-control" placeholder="Enter previous balance" required />
+                        </umb-control-group>
+                        <umb-control-group label="Current Balance">
+                            <input type="text" id="currentBalance" ng-model="vm.invoiceReport.currentBalance" class="form-control" placeholder="Enter current balance" required />
+                        </umb-control-group>
+                        <umb-control-group label="Deceased This Month">
+                            <input type="text" id="deceasedThisMonth" ng-model="vm.invoiceReport.deceasedThisMonth" class="form-control" placeholder="Enter deceased this month" />
+                        </umb-control-group>
+                        <umb-control-group label="Is Church Member">
+                            <input type="checkbox" id="isChurchMember" ng-model="vm.invoiceReport.isChurchMember" />
+                        </umb-control-group>
+                    </umb-box-content>
+                </umb-box>
+
+                <umb-box style="flex-grow: 1;" ng-if="!vm.loading">
+                    <umb-box-content>
+                        <umb-control-group label="Payment Made">
+                            <input type="text" id="paymentMade" ng-model="vm.invoiceReport.paymentMade" class="form-control" placeholder="Enter payment made" required />
+                        </umb-control-group>
+                        <umb-control-group label="Date of Payment Made">
+                            <input type="date" id="dateOfPaymentMade" ng-model="vm.invoiceReport.dateOfPaymentMade" class="form-control" required />
+                        </umb-control-group>
+
+                        <umb-control-group label="Deceased Count (Month)">
+                            <input type="number" id="deceasedCountMonth" ng-model="vm.invoiceReport.deceasedCountMonth" class="form-control" placeholder="Enter deceased count for the month" />
+                        </umb-control-group>
+                        <umb-control-group label="Deceased Count (YTD)">
+                            <input type="number" id="deceasedCountYTD" ng-model="vm.invoiceReport.deceasedCountYTD" class="form-control" placeholder="Enter deceased count year-to-date" />
+                        </umb-control-group>
+
+
+
+
+                    </umb-box-content>
+                </umb-box>
+            </div>
+        </umb-editor-container>
+
+            <umb-editor-footer>
+                <umb-editor-footer-content-right>
+                    <umb-button type="button" button-style="success" label="Save" ng-if="!vm.isEdit" action="vm.save()" disabled="vm.loading || !vm.invoiceReport.reportName || !vm.invoiceReport.supportedMember || !vm.invoiceReport.dependentMember">
+                        Save
+                    </umb-button>
+
+                    <umb-button type="button" button-style="success" label="Update" ng-if="vm.isEdit" action="vm.save()" disabled="vm.loading || !vm.invoiceReport.reportName || !vm.invoiceReport.supportedMember || !vm.invoiceReport.dependentMember">
+                        Update
+                    </umb-button>
+                </umb-editor-footer-content-right>
+            </umb-editor-footer>
+      
+    </umb-editor-view>
+</div>

@@ -1,0 +1,33 @@
+﻿{
+    "sections": [
+        {
+            "alias": "MinisteriosAME",
+            "name": "MinisteriosAME Admin"
+        }
+    ],
+    "dashboards":  [
+        {
+            "alias": "adminDashboard",
+            "view":  "/App_Plugins/MinisteriosAME/dashboard.html",
+            "sections":  [ "MinisteriosAME" ],
+            "weight": -10 
+        }
+    ],
+ 
+    "javascript": [
+        
+        "~/App_Plugins/MinisteriosAME/backoffice/miembrosTreeAlias/miembrosList.controller.js",
+        "~/App_Plugins/MinisteriosAME/backoffice/miembrosTreeAlias/testView.controller.js",
+       
+        
+
+
+
+        
+    ],
+    "css": [
+        
+        
+    ]
+ 
+}

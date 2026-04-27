@@ -1,0 +1,80 @@
+﻿ 
+    <!-- panelAdministrativo.html -->
+    <div ng-controller="MySectionController as vm"> 
+
+        <!-- Editor Container -->
+        <umb-editor-container>
+            <div class="umb-editor-content__inner mt4">
+                <!-- Main content here -->
+                <div class="flex" style="gap:20px;">
+                    <umb-box>
+                        <umb-box-header>
+                            <h2>Miembros Activos</h2>
+                        </umb-box-header>
+                        <umb-box-content>
+                            <p>EE.UU: <strong>{{vm.content.usaCount}}</strong>. PR: <strong>{{vm.content.prCount}}</strong>.   RD: <strong>{{vm.content.drCount}}</strong>. </p>
+                        </umb-box-content>
+                    </umb-box>
+                    <umb-box>
+                        <umb-box-header>
+                            <h2>Aportaciones</h2>
+                        </umb-box-header>
+                        <umb-box-content>
+                            <p>Cargos De Mes: $100. Balance Recaudado: $100. (break up into countries)</p>
+                        </umb-box-content>
+                    </umb-box>
+                    <umb-box>
+                        <umb-box-header>
+                            <h2>Fallecidos</h2>
+                        </umb-box-header>
+                        <umb-box-content>
+                            <p>Del Mes. By country</p>
+                        </umb-box-content>
+                    </umb-box>
+                    <umb-box>
+                        <umb-box-header>
+                            <h2>Admiciones</h2>
+                        </umb-box-header>
+                        <umb-box-content>
+                            <p>Del Mes. By country</p>
+                        </umb-box-content>
+                    </umb-box>
+                    <umb-box>
+                        <umb-box-header>
+                            <h2>Bajas</h2>
+                        </umb-box-header>
+                        <umb-box-content>
+                            <p>Del Mes. By country</p>
+                        </umb-box-content>
+                    </umb-box>
+                    <umb-box>
+                        <umb-box-header>
+                            <h2>Main Content</h2>
+                        </umb-box-header>
+                        <umb-box-content>
+                            <p>{{ vm.content.description }}</p>
+                        </umb-box-content>
+                    </umb-box>
+                    <umb-box>
+                        <umb-box-header>
+                            <h2>Main Content</h2>
+                        </umb-box-header>
+                        <umb-box-content>
+                            <p>{{ vm.content.description }}</p>
+                        </umb-box-content>
+                    </umb-box>
+                </div>
+            </div>
+        </umb-editor-container>
+
+        <!-- Editor Footer -->
+        <umb-editor-footer>
+            <umb-editor-footer-content>
+                <button type="button" class="btn umb-button-primary" ng-click="vm.save()">Save</button>
+            </umb-editor-footer-content>
+        </umb-editor-footer>
+    
+        
+
+    </div>
+ 

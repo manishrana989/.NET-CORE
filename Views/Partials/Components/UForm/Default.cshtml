@@ -1,0 +1,32 @@
+﻿@using UFormKit.Controller
+@using UFormKit.Models
+@model UFormModel
+
+
+<div class="u-form-kit">
+    @using (Html.BeginUmbracoForm<UFormController>("Send", null, new { @class = "myclass" }))
+    {
+        @if (@TempData["success"] != null)
+        {
+            <span class="u-form-kit-response-output">@TempData["success"]</span>
+        }
+
+        @Html.ValidationSummary(true)
+        @Model.Template
+    }
+</div>
+@if (Model.UseRecaptcha)
+{
+    <script src="https://www.google.com/recaptcha/api.js?render=@Model.SiteKey"></script>
+    <script>
+        grecaptcha.ready(function () {
+            grecaptcha.execute('@Model.SiteKey', { action: 'submit' })
+                .then(function (token) {
+                    document.getElementById('g-recaptcha-response').value = token;
+                });
+        });
+    </script>
+}
+
+<script defer src="/App_Plugins/UFormKit/scripts/uFormKit.js"></script>
+
